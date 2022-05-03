@@ -20,3 +20,23 @@ print('Ex2 > ', dir(a))
 
 a._SampleA__y = 100 # 수정 가능하지만 권장하지 않는다.
 print('Ex2 > y : {}'.format(a._SampleA__y))
+
+
+# Ex3
+# 메소드 활용 getter, setter
+
+class SampleB:
+    def __init__(self):
+        self.x = 0
+        self.__y = 0
+    
+    def get_y(self):
+        return self.__y
+    
+    def set_y(self, value):
+        self.__y = value
+
+b = SampleB()
+b.x = 10
+b.set_y(2)
+print('Ex3 > x : {}'.format(b.get_y()))
