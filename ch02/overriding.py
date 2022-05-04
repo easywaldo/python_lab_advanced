@@ -21,7 +21,58 @@ class ParentEx1():
 class ChildEx1(ParentEx1):
     pass
 
+class ChildEx2(ParentEx1):
+    def get_value(self):
+        return self.value * 1000
+
 c1 = ChildEx1()
 p1 = ParentEx1()
 
 print('Ex1 > ', c1.get_value())
+
+print('Ex1 > ', dir(c1))
+print('Ex1 > ', dir(ParentEx1))
+print('Ex1 > ', dir(ChildEx1))
+
+print('================================================================')
+
+print('Ex1 > ', ParentEx1.__dict__)
+print('Ex1 > ', ChildEx1.__dict__)
+
+
+
+c2 = ChildEx2()
+print('Ex2 >', c2.get_value())
+
+
+
+import datetime
+
+class Logger(object):
+    def log(self, message):
+        print(message)
+        
+class TimestampLogger(Logger):
+    def log(self, message):
+        message = "{ts} {message}".format(ts=datetime.datetime.now(), message=message)
+        super(TimestampLogger, self).log(message)
+        super().log(message)
+        
+class DateLogger(Logger):
+    def log(self, message):
+        message = "{ts} {message}".format(ts=datetime.datetime.now().strftime("%Y-%m-%d"), message=message)
+        super(DateLogger, self).log(message)
+        super().log(message)
+        
+l = Logger()
+t = TimestampLogger()
+d = DateLogger()
+
+print('Ex3 >', l.log('Called logger..'))
+print('Ex3 >', t.log('Called timestamp logger..'))
+print('Ex3 >', d.log('Called date logger..'))
+
+
+l.log('test1')
+t.log('test2')
+d.log('test3')
