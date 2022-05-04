@@ -40,3 +40,26 @@ print('Ex2 >', b.add('int', 10, 9))
 
 # 문자열연산
 print('Ex2 >', b.add('str', 'hi','python'))
+
+
+from multipledispatch import dispatch
+
+class SampleC():
+    
+    @dispatch(int, int)
+    def product(x, y):
+        return x * y
+
+    @dispatch(int, int, int)
+    def product(x, y, z):
+        return x * y * z
+    
+    @dispatch(float, float, float)
+    def product(x, y, z):
+        return x * y * z
+    
+c = SampleC()
+
+print('Ex3 >', c.product(5,6))
+print('Ex3 >', c.product(5,6,7))
+print('Ex3 >', c.product(5.0,6.0,7.0))
