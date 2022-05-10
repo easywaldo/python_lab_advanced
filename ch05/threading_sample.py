@@ -62,6 +62,8 @@ if __name__ == '__main__':
     # 서브스레드 시작
     x.start()
     
+    x.join()
+    
     logging.info("Main-Thread: wait for the thread to finish")
     
     logging.info("Main-Thread: all done")
