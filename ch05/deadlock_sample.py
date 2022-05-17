@@ -35,16 +35,26 @@ class FakeDataStore:
         
         # mutext & lock 등 동기화 필요한 부분(Thread syncronization)
         # lock 획득(방법1)
-        self._lock.acquire()
-        logging.info('Thread %s has lock', n)
+        # self._lock.acquire()
+        # logging.info('Thread %s has lock', n)
         
-        local_copy = self.value
-        local_copy += 1
-        time.sleep(0.1)
-        self.value = local_copy
+        # local_copy = self.value
+        # local_copy += 1
+        # time.sleep(0.1)
+        # self.value = local_copy
         
-        # lock 반환
-        self._lock.release()
+        # # lock 반환
+        # self._lock.release()
+        
+        
+        # lock 획득(방법2)
+        with self._lock:
+            logging.info('Thread %s has lock', n)        
+            local_copy = self.value
+            local_copy += 1
+            time.sleep(0.1)
+            self.value = local_copy
+
         
         logging.info('Thread %s: finishing update', n)
 
@@ -60,7 +70,7 @@ if __name__ == "__main__":
     logging.info('Testing update. Starting value is %d', store.value)
     
     with ThreadPoolExecutor(max_workers=2) as executor:
-        for n in ['First', 'Second', 'Third']:
+        for n in ['First', 'Second', 'Third', 'Forth']:
             executor.submit(store.update, n)
             
     logging.info('Testing update. Ending value is %d', store.value)
