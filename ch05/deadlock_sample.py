@@ -21,21 +21,30 @@ Thread syncronization (스레드 동기화), 동기화 메서드 , 동기화 블
 import logging
 from concurrent.futures import ThreadPoolExecutor
 import time
+import threading
 
 
 class FakeDataStore:
     # 공유 변수
     def __init__(self):
         self.value = 0
+        self._lock = threading.Lock()
         
     def update(self, n):
         logging.info('Thread %s: starting update', n)
         
         # mutext & lock 등 동기화 필요한 부분(Thread syncronization)
+        # lock 획득(방법1)
+        self._lock.acquire()
+        logging.info('Thread %s has lock', n)
+        
         local_copy = self.value
         local_copy += 1
         time.sleep(0.1)
         self.value = local_copy
+        
+        # lock 반환
+        self._lock.release()
         
         logging.info('Thread %s: finishing update', n)
 
