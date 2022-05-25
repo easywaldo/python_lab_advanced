@@ -40,7 +40,7 @@ def main():
     # Queue 선언
     q = Queue()
     
-    for i in range(5):
+    for i in range(20):
         t = Process(name=str(i), target=worker, args=(i, 100000000, q))
         
         # 배열에 담기
