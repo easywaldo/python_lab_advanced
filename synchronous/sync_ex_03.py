@@ -15,12 +15,13 @@ def set_global_session():
         session = requests.Session()
 
 def request_site(url):
-    # print(session)
+    # 세션 확인
+    print(session)
     # print(session.headers)
     
     with session.get(url) as response:
         name = multiprocessing.current_process().name
-        print(f'[Read Contents : {len(response.content)}, Status Code : {response.status_code} from {url}]')
+        print(f'[{name} ->> Read Contents : {len(response.content)}, Status Code : {response.status_code} from {url}]')
 
 def request_all_sites(urls):
     # 멀티프로세싱 실행
