@@ -19,3 +19,36 @@ def reverse_str(coll: S) -> S:
 print(reverse_str("helloworld"))
 print(reverse_str([1,2,3,]))
 
+
+import logging
+from typing import TypeVar, Generic
+from logging import NOTSET, Logger, getLogger
+T = TypeVar('T')
+
+class LoggedVar(Generic[T]):
+    def __init__(self, value: T, name: str, logger: Logger) -> None:
+        self.name = name
+        self.logger = logger
+        self.value = value
+
+    def set(self, new: T) -> None:
+        self.log('Set ' + repr(self.value))
+        self.value = new
+
+    def get(self) -> T:
+        self.log('Get ' + repr(self.value))
+        return self.value
+
+    def log(self, message: str) -> None:
+        self.logger.info('%s: %s', self.name, message)
+        
+logging.basicConfig(filename='example.log', encoding='utf-8', level=logging.INFO)
+logger_ex = getLogger(name="easywaldo")
+logger = LoggedVar(
+    value=str, 
+    name="easywaldo", 
+    logger=logger_ex)
+logger.log("hello my world")
+logging.info("hello world")
+
+
