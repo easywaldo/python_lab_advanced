@@ -17,5 +17,8 @@ def get_user_name(user_id: UserId) -> Optional[str]:
 
 user_a = get_user_name(UserId(100))
 print(user_a)
-user_b = get_user_name(UserId(-200))
-print(user_b)
+# user_b = get_user_name(UserId(-200))
+# print(user_b)
+
+output = UserId(23413) + UserId(54341)
+print(output)
