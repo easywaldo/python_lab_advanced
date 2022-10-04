@@ -22,3 +22,7 @@ print(user_a)
 
 output = UserId(23413) + UserId(54341)
 print(output)
+
+
+class AdminUserId(UserId): pass # TypeError: function() argument 'code' must be code, not str
+admin_a = AdminUserId(999)
