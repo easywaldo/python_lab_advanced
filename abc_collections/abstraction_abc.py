@@ -22,7 +22,11 @@ def get_aliases(alias: str) -> list[str]:
     return list(aliases.values())
 
 
-def print_items(items):
+# def print_items(items):
+#     for item in items:
+#         print(item)
+
+def print_items(items: collections.abc.Iterable):
     for item in items:
         print(item)
 
