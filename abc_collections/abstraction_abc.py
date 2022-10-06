@@ -22,6 +22,11 @@ def get_aliases(alias: str) -> list[str]:
     return list(aliases.values())
 
 
+def print_items(items):
+    for item in items:
+        print(item)
+
+
 if __name__ == "__main__":
     ingredients = AliasedIngredients({'arugula', 'eggplant', 'pepper'})
 
@@ -33,3 +38,9 @@ if __name__ == "__main__":
     print('arugula' in ingredients)
     print('rocket' in ingredients)
     print(list(ingredients | AliasedIngredients({'garlic'})))
+    
+    
+    
+    print_items([1,2,3])
+    print_items({4, 5, 6})
+    print_items({"A": 1, "B": 2, "C": 3})
