@@ -16,16 +16,17 @@ class AliasedIngredients(collections.abc.Set):
 
 def get_aliases(alias: str) -> list[str]:
     aliases = {
-        "rocket": "arugula",
-        "jumbo": "orange",    
+        'rocket': 'arugula',
+        'jumbo': 'orange',    
     }
+    return list(aliases.values())
 
 
 if __name__ == "__main__":
-    ingredients = AliasedIngredients({"arugula", "eggplant", "pepper"})
+    ingredients = AliasedIngredients({'arugula', 'eggplant', 'pepper'})
 
-    for ingredients in ingredients:
-        print(ingredients)
+    for item in ingredients:
+        print(item)
 
     print(len(ingredients))
 
