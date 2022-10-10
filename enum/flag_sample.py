@@ -1,7 +1,7 @@
-from enum import auto, Enum
+from enum import Flag, auto
 from typing import Set
 
-class Allergen(Enum):
+class Allergen(Flag):
     FISH = auto()
     SHELLFISH = auto()
     TREE_NUTS = auto()
@@ -12,4 +12,8 @@ class Allergen(Enum):
     
 allergens: Set[Allergen] = {Allergen.FISH, Allergen.SOY}
 
+print(allergens)
+
+
+allergens = Allergen.FISH | Allergen.SHELLFISH
 print(allergens)
