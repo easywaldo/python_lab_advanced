@@ -16,3 +16,6 @@ sauce: Literal['Béchamel', 'Velouté', 'Espagnole',
                'Tomato', 'Hollandaise'] = 'Hollandaise'
 
 print(sauce)
+
+sauce: MotherSauce = MotherSauce.HOLLANDAISE
+print(sauce)
