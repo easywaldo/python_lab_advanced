@@ -17,3 +17,6 @@ print(allergens)
 
 allergens = Allergen.FISH | Allergen.SHELLFISH
 print(allergens)
+
+if allergens & Allergen.FISH:
+    print("This recipe contains fish.")
