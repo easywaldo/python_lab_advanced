@@ -1,4 +1,4 @@
-from enum import Flag, auto
+from enum import Enum, Flag, IntEnum, auto
 from typing import Set
 
 class Allergen(Flag):
@@ -25,3 +25,14 @@ if allergens & Allergen.FISH:
     
 print(Allergen.FISH in Allergen.SEAFOOD)
 print(Allergen.FISH in Allergen.ALL_NUTS)
+
+class ImperialLiquidMeasure(IntEnum):
+    CUP = 8
+    PINT = 16
+    QUART = 32
+    GALLON = 128
+
+print("Compare IntEnum =================================================")
+print(ImperialLiquidMeasure.CUP.value == 8)
+print(ImperialLiquidMeasure.CUP.value)
+assert(ImperialLiquidMeasure.CUP == 8)
