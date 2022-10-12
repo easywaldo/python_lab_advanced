@@ -102,3 +102,22 @@ class Recipe:
     starches: set[Ingredient]
     garnishes: set[Ingredient]
     time_to_cook: datetime.timedelta
+    
+    
+pepper = Ingredient("Pepper", 1, ImperialMeasure.TABLESPOON)
+garlic = Ingredient("Garlic", 2, ImperialMeasure.TEASPOON)
+carrots = Ingredient("Carrots", .25, ImperialMeasure.CUP)
+celery = Ingredient("Celery", .25, ImperialMeasure.CUP)
+onions = Ingredient("Onions", .25, ImperialMeasure.CUP)
+parsley = Ingredient("Parsley", 2, ImperialMeasure.TABLESPOON)
+noodles = Ingredient("Noodles", 1.5, ImperialMeasure.CUP)
+chicken = Ingredient("Chicken", 1.5, ImperialMeasure.CUP)
+
+chicken_noodle_soup = Recipe(
+    aromatics={pepper, garlic},
+    broth=Broth.CHICKEN,
+    vegetables={celery, onions, carrots},
+    meats={chicken},
+    starches={noodles},
+    garnishes={parsley},
+    time_to_cook=datetime.timedelta(minutes=60))
