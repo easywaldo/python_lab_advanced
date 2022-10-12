@@ -19,11 +19,11 @@ allergens: Set[Allergen] = {Allergen.FISH, Allergen.SOY}
 print(allergens)
 
 
-allergens = Allergen.FISH | Allergen.SHELLFISH
-print(allergens)
+# allergens = Allergen.FISH | Allergen.SHELLFISH
+# print(allergens)
 
-if allergens & Allergen.FISH:
-    print("This recipe contains fish.")
+# if allergens & Allergen.FISH:
+#     print("This recipe contains fish.")
     
 print(Allergen.FISH in Allergen.SEAFOOD)
 print(Allergen.FISH in Allergen.ALL_NUTS)
@@ -62,9 +62,9 @@ class MotherSauce(Enum):
     TOMATO = "Tomato"
     HOLLANDAISE = "Hollandaise"
     
-from fraction import Fraction
-fraction_value = Fraction(numerator=3, denominator=5)
-print(fraction_value)
+# from fraction import Fraction
+# fraction_value = Fraction(numerator=3, denominator=5)
+# print(fraction_value)
 
 @dataclass
 class MyFraction:
@@ -121,3 +121,5 @@ chicken_noodle_soup = Recipe(
     starches={noodles},
     garnishes={parsley},
     time_to_cook=datetime.timedelta(minutes=60))
+
+incorrect_ingredients = Ingredient(name="good", amount=100, units="Unknown")
