@@ -36,3 +36,17 @@ print("Compare IntEnum =================================================")
 print(ImperialLiquidMeasure.CUP.value == 8)
 print(ImperialLiquidMeasure.CUP.value)
 assert(ImperialLiquidMeasure.CUP == 8)
+
+
+class Kitchenware(IntEnum):
+    PLATE = 7
+    CUP = 8
+    UTENSILS = 9
+    
+def pour_liquid(volume: ImperialLiquidMeasure):
+    if volume == Kitchenware.CUP:
+        print("same")
+    else:
+        print("different")
+        
+pour_liquid(ImperialLiquidMeasure.CUP)
