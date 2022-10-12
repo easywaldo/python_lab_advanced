@@ -122,4 +122,8 @@ chicken_noodle_soup = Recipe(
     garnishes={parsley},
     time_to_cook=datetime.timedelta(minutes=60))
 
-incorrect_ingredients = Ingredient(name="good", amount=100, units="Unknown")
+# incorrect_ingredients = Ingredient(name="good", amount=100, units="Unknown")
+
+print(chicken_noodle_soup.broth)
+chicken_noodle_soup.garnishes.add(pepper)
+print(chicken_noodle_soup.garnishes)
