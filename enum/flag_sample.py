@@ -1,6 +1,6 @@
 from dataclasses import dataclass
+import datetime
 from enum import Enum, Flag, IntEnum, auto, unique
-from tkinter import N
 from typing import Set
 
 class Allergen(Flag):
@@ -72,3 +72,33 @@ class MyFraction:
     denominator: int = 3
     
 MyFraction(numerator = 2, denominator = 3)
+
+
+class ImperialMeasure(Enum):
+    TEASPOON = auto()
+    TABLESPOON = auto()
+    CUP = auto()
+
+class Broth(Enum):
+    VEGETABLE = auto()
+    CHICKEN = auto()
+    BEEF = auto()
+    FISH = auto()
+    
+@dataclass(frozen=True) 
+# Ingredients added into the broth
+class Ingredient:
+    name: str
+    amount: float = 1
+    units: ImperialMeasure = ImperialMeasure.CUP
+
+
+@dataclass
+class Recipe:
+    aromatics: set[Ingredient]
+    broth: Broth
+    vegetables: set[Ingredient]
+    meats: set[Ingredient]
+    starches: set[Ingredient]
+    garnishes: set[Ingredient]
+    time_to_cook: datetime.timedelta
