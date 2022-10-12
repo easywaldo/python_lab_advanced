@@ -1,4 +1,4 @@
-from enum import Enum, Flag, IntEnum, auto
+from enum import Enum, Flag, IntEnum, auto, unique
 from typing import Set
 
 class Allergen(Flag):
@@ -50,3 +50,13 @@ def pour_liquid(volume: ImperialLiquidMeasure):
         print("different")
         
 pour_liquid(ImperialLiquidMeasure.CUP)
+
+
+@unique
+class MotherSauce(Enum):
+    BÉCHAMEL = "Béchamel"
+    VELOUTÉ = "Velouté"
+    ESPAGNOLE = "Espagnole"
+    TOMATO = "Tomato"
+    HOLLANDAISE = "Hollandaise"
+    DUPLICATED = "Tomato"
