@@ -1,4 +1,6 @@
+from dataclasses import dataclass
 from enum import Enum, Flag, IntEnum, auto, unique
+from tkinter import N
 from typing import Set
 
 class Allergen(Flag):
@@ -64,3 +66,9 @@ from fraction import Fraction
 fraction_value = Fraction(numerator=3, denominator=5)
 print(fraction_value)
 
+@dataclass
+class MyFraction:
+    numerator: int = 2
+    denominator: int = 3
+    
+MyFraction(numerator = 2, denominator = 3)
