@@ -59,4 +59,8 @@ class MotherSauce(Enum):
     ESPAGNOLE = "Espagnole"
     TOMATO = "Tomato"
     HOLLANDAISE = "Hollandaise"
-    DUPLICATED = "Tomato"
+    
+from fraction import Fraction
+fraction_value = Fraction(numerator=3, denominator=5)
+print(fraction_value)
+
