@@ -156,22 +156,14 @@ class Range(TypedDict):
     min: float
     max: float
     
-class NutritionInformation(TypedDict):
-    value: int
-    unit: str
-    confidenceRange95Percent: Range
-    standardDeviation: float
-    
-class RecipeNutritionInformation(TypedDict):
-    recipes_used: int
-    calories: NutritionInformation
-    fat: NutritionInformation
-    protein: NutritionInformation
-    carbs: NutritionInformation
-    
-nutritionals = [RecipeNutritionInformation(calories=100, fat=1, carbs=3),
-                RecipeNutritionInformation(calories=50, fat=6, carbs=4),
-                RecipeNutritionInformation(calories=125, fat=12, carbs=3)]
+@dataclass(eq=True, order=True)
+class NutritionInformation:
+    calories: int
+    fat: int
+    carbohydrates: int
+nutritionals = [NutritionInformation(calories=100, fat=1, carbohydrates=3),
+                NutritionInformation(calories=50, fat=6, carbohydrates=4),
+                NutritionInformation(calories=125, fat=12, carbohydrates=3)]
 
 sorted(nutritionals)
     # TypeError: '<' not supported between instances of
