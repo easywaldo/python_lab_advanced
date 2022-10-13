@@ -185,3 +185,6 @@ print(sorted(nutritionals))
     # TypeError: '<' not supported between instances of
     # 'NutritionInformation' and 'NutritionInformation'
     #
+    
+n1 = NutritionInformation(calories=200, fat=1, carbohydrates=3)
+n1.calories = 100
