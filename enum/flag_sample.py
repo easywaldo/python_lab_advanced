@@ -145,4 +145,7 @@ noodle_soup = deepcopy(chicken_noodle_soup)
 noodle_soup.make_vegetarian()
 print(noodle_soup.get_ingredient_names())
 
+print(str(chicken_noodle_soup))
 
+print(chicken_noodle_soup == noodle_soup)
+print(noodle_soup == deepcopy(noodle_soup))
