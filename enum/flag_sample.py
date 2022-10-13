@@ -1,3 +1,4 @@
+from copy import deepcopy
 from dataclasses import dataclass
 import datetime
 from enum import Enum, Flag, IntEnum, auto, unique
@@ -103,6 +104,18 @@ class Recipe:
     garnishes: set[Ingredient]
     time_to_cook: datetime.timedelta
     
+    def make_vegetarian(self):
+        self.meats.clear()
+        self.broth = Broth.VEGETABLE
+        
+    def get_ingredient_names(self):
+        ingredients = (self.aromatics |
+                       self.vegetables |
+                       self.meats |
+                       self.starches |
+                       self.garnishes)
+        return ({i.name for i in ingredients} | {self.broth.name.capitalize() + " broth"})
+    
     
 pepper = Ingredient("Pepper", 1, ImperialMeasure.TABLESPOON)
 garlic = Ingredient("Garlic", 2, ImperialMeasure.TEASPOON)
@@ -127,3 +140,9 @@ chicken_noodle_soup = Recipe(
 print(chicken_noodle_soup.broth)
 chicken_noodle_soup.garnishes.add(pepper)
 print(chicken_noodle_soup.garnishes)
+
+noodle_soup = deepcopy(chicken_noodle_soup)
+noodle_soup.make_vegetarian()
+print(noodle_soup.get_ingredient_names())
+
+
