@@ -149,3 +149,31 @@ print(str(chicken_noodle_soup))
 
 print(chicken_noodle_soup == noodle_soup)
 print(noodle_soup == deepcopy(noodle_soup))
+
+
+from typing import TypedDict
+class Range(TypedDict):
+    min: float
+    max: float
+    
+class NutritionInformation(TypedDict):
+    value: int
+    unit: str
+    confidenceRange95Percent: Range
+    standardDeviation: float
+    
+class RecipeNutritionInformation(TypedDict):
+    recipes_used: int
+    calories: NutritionInformation
+    fat: NutritionInformation
+    protein: NutritionInformation
+    carbs: NutritionInformation
+    
+nutritionals = [RecipeNutritionInformation(calories=100, fat=1, carbs=3),
+                RecipeNutritionInformation(calories=50, fat=6, carbs=4),
+                RecipeNutritionInformation(calories=125, fat=12, carbs=3)]
+
+sorted(nutritionals)
+    # TypeError: '<' not supported between instances of
+    # 'NutritionInformation' and 'NutritionInformation'
+    #
