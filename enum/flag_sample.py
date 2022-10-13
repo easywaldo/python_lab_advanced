@@ -187,4 +187,6 @@ print(sorted(nutritionals))
     #
     
 n1 = NutritionInformation(calories=200, fat=1, carbohydrates=3)
-n1.calories = 100
+# n1.calories = 100
+n1 = NutritionInformation(calories=200, fat=1, carbohydrates=5)
+    # this is not an error
