@@ -156,7 +156,7 @@ class Range(TypedDict):
     min: float
     max: float
     
-@dataclass(eq=True)
+@dataclass(eq=True, frozen=True)
 class NutritionInformation:
     calories: int
     fat: int
