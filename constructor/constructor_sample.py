@@ -17,8 +17,20 @@ class PersonData():
     address: str = ""
     
 patData = PersonData("Pat", 13, "123 Fake St.")
-patData = {
+patDataDict = {
     "name": "",
     "years_experience": 0,
     "address": ""
 }
+
+
+class PersonM:
+    def __init__(self,
+                  name: str,
+                  years_experience: int,
+                  address: str):
+        self.name = name
+        self.years_experience = years_experience
+        self.address = address
+
+pat_m = PersonM("Pat", 13, "123 Fake St.")
