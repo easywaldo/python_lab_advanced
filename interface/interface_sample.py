@@ -20,3 +20,11 @@ class Recipe:
     servings: int
     
 
+test_ingredients = Ingredient(
+    name="test_name",
+    brand="test brand",
+    amount=1,
+    units=ImperialMeasure.CUP
+)
+
+print(test_ingredients)
