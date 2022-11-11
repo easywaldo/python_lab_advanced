@@ -13,3 +13,20 @@ seek_value = 12
 
 result = linear_search(seek_value, target_list)
 print(result)
+
+
+def binary_search(needle, haystack):
+    imin, imax = 0, len(haystack)
+    while True:
+        if imin > imax:
+            return -1
+        midpoint = (imin + imax) // 2
+        if haystack[midpoint] > needle:
+            imax = midpoint
+        elif haystack[midpoint] < needle:
+            imin = midpoint+1
+        else:
+            return midpoint
+        
+result = binary_search(8, [1,2,3,4,5,6,7,8,9,10])
+print(result)
