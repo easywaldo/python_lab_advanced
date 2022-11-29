@@ -24,3 +24,8 @@ print(first([-1, 0, 2, 4, 5, 10], key=partial(greater_than, min=3)))
 
 print(first([-1, 0, 2, 4, 5, 10], key=partial(operator.le, 0)))
 print(first([-1, 0, 2, 4, 5, 10], key=partial(operator.ge, 5)))
+
+
+import itertools
+a = [{'foo': 'bar'}, {'foo': 'bar', 'x': 42}, {'foo': 'baz', 'y': 43}]
+print(list(itertools.groupby(a, operator.itemgetter('foo'))))
