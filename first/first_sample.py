@@ -20,3 +20,7 @@ def greater_than(number, min=0):
     return number > min
 
 print(first([-1, 0, 2, 4, 5, 10], key=partial(greater_than, min=3)))
+
+
+print(first([-1, 0, 2, 4, 5, 10], key=partial(operator.le, 0)))
+print(first([-1, 0, 2, 4, 5, 10], key=partial(operator.ge, 5)))
