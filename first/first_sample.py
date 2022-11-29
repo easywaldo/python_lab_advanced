@@ -12,3 +12,11 @@ def greater_than_five(number):
     return number > 5
 
 print(first([-1, 0, 2, 4, 5, 10, 18], key=greater_than_five))
+
+
+from functools import partial
+
+def greater_than(number, min=0):
+    return number > min
+
+print(first([-1, 0, 2, 4, 5, 10], key=partial(greater_than, min=3)))
