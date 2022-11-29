@@ -29,3 +29,6 @@ print(first([-1, 0, 2, 4, 5, 10], key=partial(operator.ge, 5)))
 import itertools
 a = [{'foo': 'bar'}, {'foo': 'bar', 'x': 42}, {'foo': 'baz', 'y': 43}]
 print(list(itertools.groupby(a, operator.itemgetter('foo'))))
+
+print([(key, list(group)) for key, group in itertools.groupby(a, operator.itemgetter('foo'))])
+
