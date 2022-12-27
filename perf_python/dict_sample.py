@@ -10,3 +10,10 @@ phonebook = [
 ]
 
 print(f"Easywaldo phone number is {find_phonenumber(phonebook, 'Easywaldo')}")
+
+phonebook_dict = {
+    "Easywaldo": "999-999-9999",
+    "Thomas": "123-456-789",
+}
+
+print(f"Easywaldo phone number is {phonebook_dict['Easywaldo']}")
