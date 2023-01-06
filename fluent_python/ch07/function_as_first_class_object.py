@@ -33,3 +33,5 @@ class BingoCage:
 
 bingo = BingoCage(range(3))
 print(bingo.pick())
+
+print(BingoCage([]).pick())
