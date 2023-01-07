@@ -15,3 +15,12 @@ dial_codes = [
 country_dial = {country: code for code, country in dial_codes}
 print(country_dial)
 print({code: country.upper() for country, code in sorted(country_dial.items()) if code < 70})
+
+
+def dump(**kwargs):
+    return kwargs
+
+result = dump(**{'x': 1}, y=2, **{'z': 3})
+print(result)
+
+print({'a': 0, **{'x': 1}, 'y': 2, **{'z': 3, 'x': 4}})
