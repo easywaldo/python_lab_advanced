@@ -32,3 +32,9 @@ print(get_creators(b3))
 # print(get_creators({'type': 'book', 'pages': 770}))
 
 # print(get_creators('Spam, spam, spam'))
+
+food = dict(category='ice cream', flavor='vanilla', cost=199)
+match food:
+    case {'category': 'ice cream', **details}:
+        print(f'Ice cream details: {details}')
+
