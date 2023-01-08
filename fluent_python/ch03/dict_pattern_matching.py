@@ -42,3 +42,12 @@ from collections import abc
 my_dict = {}
 print(isinstance(my_dict, abc.Mapping))
 print(isinstance(my_dict, abc.MutableMapping))
+
+
+tuple_data = (1, 2, (30, 40))
+print(hash(tuple_data))
+h1 = (1, 2, [30, 40])
+# print(hash(h1)) # error - unhashable type: 'list'
+
+tuple_frozen = (1, 2, frozenset([30, 40]))
+print(hash(tuple_frozen))
