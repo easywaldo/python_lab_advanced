@@ -24,3 +24,10 @@ b2 = dict(
     title='Godel, Escher, Bach')
 print(get_creators(b1))
 print(get_creators(b2))
+
+from collections import OrderedDict
+b3 = OrderedDict(api=2, type='book', title='Python in a Nutshell', authors='Martelli Ravenscrosf Holden'.split())
+print(get_creators(b3))
+
+print(get_creators({'type': 'book', 'pages': 770}))
+
