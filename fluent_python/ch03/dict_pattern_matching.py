@@ -38,3 +38,7 @@ match food:
     case {'category': 'ice cream', **details}:
         print(f'Ice cream details: {details}')
 
+from collections import abc
+my_dict = {}
+print(isinstance(my_dict, abc.Mapping))
+print(isinstance(my_dict, abc.MutableMapping))
