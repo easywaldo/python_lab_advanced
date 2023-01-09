@@ -91,3 +91,5 @@ print(ct)
 
 ct.update('aaaazzz')
 print(ct)
+
+print(ct.most_common(3))
