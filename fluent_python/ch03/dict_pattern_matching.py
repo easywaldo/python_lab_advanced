@@ -93,3 +93,6 @@ ct.update('aaaazzz')
 print(ct)
 
 print(ct.most_common(3))
+
+s = {1}
+print(type(s))
