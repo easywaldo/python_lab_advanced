@@ -97,3 +97,7 @@ print(ct.most_common(3))
 s = {1}
 print(type(s))
 print(s.pop())
+
+
+fs = frozenset(range(10))
+print(fs)
