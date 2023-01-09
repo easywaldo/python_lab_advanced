@@ -88,3 +88,6 @@ print(d_proxy[2])
 from collections import Counter
 ct = Counter('abracadabra')
 print(ct)
+
+ct.update('aaaazzz')
+print(ct)
