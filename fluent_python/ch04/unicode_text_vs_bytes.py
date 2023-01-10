@@ -30,3 +30,18 @@ print(octets)
 
 for codec in ['latin_1', 'utf_8', 'utf_16']:
     print(codec, 'El Niño'.encode(codec), sep='\t')
+    
+    
+city = 'São Paulo'
+print(city.encode('utf_8'))
+print(city.encode('utf_16'))
+print(city.encode('iso8859_1'))
+# print(city.encode('cp437')) # error
+
+
+print(city.encode('cp437', errors='ignore'))
+print(city.encode('cp437', errors='replace'))
+print(city.encode('cp437', errors='xmlcharrefreplace'))
+
+
+
