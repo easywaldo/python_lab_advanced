@@ -42,3 +42,21 @@ class Coordinate(NamedTuple):
     
 # print(issubclass(Coordinate, typing.NamedTuple)) # error
 print(issubclass(Coordinate, tuple))
+
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class CoordinateData:
+    lat: float
+    lon: float
+    
+    def __str__(self) -> str:
+        ns = 'N' if self.lat >= 0 else 'S'
+        we = 'E' if self.lon >= 0 else 'W'
+        return f'{abs(self.lat):.1f}°{ns}, {abs(self.lon):.1f}°{we}'
+    
+coord = CoordinateData(lat=3.12, lon=12.66)
+print(coord.lat)
+print(coord.lon)
+print(coord.__annotations__)
+print(dataclasses.asdict(coord))
