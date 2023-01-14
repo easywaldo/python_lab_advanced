@@ -51,3 +51,4 @@ print(octets.decode('koi8_r'))
 # print(octets.decode('utf_8')) # error
 
 print(octets.decode('utf_8', errors='replace'))
+

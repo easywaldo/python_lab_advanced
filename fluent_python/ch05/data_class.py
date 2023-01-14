@@ -74,3 +74,16 @@ print(DemoPlainClass.__annotations__)
 # print(DemoPlainClass.a) # error
 print(DemoPlainClass.b)
 print(DemoPlainClass.c)
+
+
+import typing
+
+class DemoNTClass(typing.NamedTuple):
+    a: int
+    b: float = 1.1
+    c = 'spam'
+    
+print(DemoNTClass.__annotations__)
+print(DemoNTClass.a)
+print(DemoNTClass.b)
+print(DemoNTClass.__doc__)
