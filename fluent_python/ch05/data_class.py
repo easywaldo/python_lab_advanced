@@ -59,7 +59,16 @@ coord = CoordinateData(lat=3.12, lon=12.66)
 print(coord.lat)
 print(coord.lon)
 print(coord.__annotations__)
-print(dataclass.asdict(coord))
+# print(dataclass.asdict(coord))
 
 
 incorrect_coord = CoordinateData(lat=3.12, lon=None) # mypy error
+
+
+class DemoPlainClass:
+    a: int
+    b: float = 1.1
+    c = 'spam'
+    
+print(DemoPlainClass.__annotations__)
+print(DemoPlainClass.a) # error
