@@ -71,4 +71,6 @@ class DemoPlainClass:
     c = 'spam'
     
 print(DemoPlainClass.__annotations__)
-print(DemoPlainClass.a) # error
+# print(DemoPlainClass.a) # error
+print(DemoPlainClass.b)
+print(DemoPlainClass.c)
