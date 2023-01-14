@@ -87,3 +87,22 @@ print(DemoNTClass.__annotations__)
 print(DemoNTClass.a)
 print(DemoNTClass.b)
 print(DemoNTClass.__doc__)
+
+nt = DemoNTClass(8)
+print(nt.a)
+print(nt.b)
+print(nt.c)
+
+
+from dataclasses import dataclass
+
+@dataclass
+class DemoDataClass:
+    a: int
+    b: float = 1.1
+    c = 'spam'
+    
+print(DemoDataClass.__annotations__)
+print(DemoDataClass.__doc__)
+print(DemoDataClass.b)
+print(DemoDataClass.c)
