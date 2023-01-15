@@ -106,3 +106,14 @@ print(DemoDataClass.__annotations__)
 print(DemoDataClass.__doc__)
 print(DemoDataClass.b)
 print(DemoDataClass.c)
+
+
+from dataclasses import dataclass, field
+
+@dataclass
+class ClubMember:
+    name: str
+    guests: list[str] = field(default_factory=list)
+    
+cm_1 = ClubMember(name="easywaldo", guests=['alpha', 'bravo'])
+print(cm_1)
