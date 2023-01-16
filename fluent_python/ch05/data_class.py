@@ -45,7 +45,7 @@ class Coordinate(NamedTuple):
 # print(issubclass(Coordinate, typing.NamedTuple)) # error
 print(issubclass(Coordinate, tuple))
 
-from dataclasses import dataclass
+from dataclasses import dataclass, fields
 
 @dataclass(frozen=True)
 class CoordinateData:
@@ -159,6 +159,18 @@ class Resource:
     description: str = ''
     language: str = ''
     subjects: list[str] = field(default_factory=list)
+    
+    def __repr__(self):
+        cls = self.__class__
+        cls_name = cls.__name__
+        indent = ' ' * 4
+        res = [f'{cls_name}(']
+        for f in fields(cls):
+            value = getattr(self, f.name)
+            res.append(f'{indent}{f.name} = {value!r},')
+
+        res.append(')')
+        return '\n'.join(res)
     
     
 description = 'Improving the design of existing code'
