@@ -226,3 +226,6 @@ def match_asian_cities_pos():
     return results
 
 print(City.__match_args__)
+print(match_asian_cities())
+print(match_asian_countries())
+print(match_asian_cities_pos())
