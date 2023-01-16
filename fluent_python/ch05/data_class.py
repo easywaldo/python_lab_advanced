@@ -11,6 +11,8 @@ print(moscow == location)
 print((moscow.lat, moscow.lon) == (location.lat, location.lon))
 
 from collections import namedtuple
+from datetime import date
+from enum import Enum, auto
 Coordinate = namedtuple('Coordinate', 'lat lon')
 print(issubclass(Coordinate, tuple))
 moscow = Coordinate(55.76, 37.617)
@@ -29,7 +31,7 @@ Coordinate = typing.NamedTuple('Coordinate',lat=float,lon=float)
 print(issubclass(Coordinate, tuple))
 print(typing.get_type_hints(Coordinate))
 
-from typing import NamedTuple
+from typing import NamedTuple, Optional
 
 class Coordinate(NamedTuple):
     lat: float
@@ -136,4 +138,38 @@ class HackerClubMember(ClubMember):
 print(HackerClubMember.__doc__)
 
 hacker_club_member = HackerClubMember(name='easywaldo', guests=['alpha', 'bravo'])
-hacker_club_member = HackerClubMember(name='easywaldo', guests=['a', 'b'])
+# hacker_club_member = HackerClubMember(name='easywaldo', guests=['a', 'b']) # raise error 
+
+
+class ResourceType(Enum):
+    BOOK = auto()
+    EBOOK = auto()
+    VIEDO = auto()
+    
+@dataclass
+class Resource:
+    """
+    Media resource description
+    """
+    identifier: str
+    title: str = '<untiled>'
+    creators: list[str] = field(default_factory=list)
+    date: Optional[date] = None
+    type: ResourceType = ResourceType.BOOK
+    description: str = ''
+    language: str = ''
+    subjects: list[str] = field(default_factory=list)
+    
+    
+description = 'Improving the design of existing code'
+book = Resource(
+    '978-0-13-475759-9', 
+    'Refactoring, 2nd Edition', 
+    ['Martin Fowler', 'Kent Beck'], 
+    date(2018, 11, 19), 
+    ResourceType.BOOK, 
+    description, 
+    'EN', 
+    ['computer programming', 'OOP'])
+
+print(book)
