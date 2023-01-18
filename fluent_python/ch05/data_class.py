@@ -237,3 +237,11 @@ class Spam:
 spam_inst = Spam()
 Spam.repeat = 100
 print(spam_inst.repeat)
+
+@dataclass
+class Hamber:
+    cost = 100
+    
+hamber = Hamber()
+Hamber.cost = 1000
+print(hamber.cost)
