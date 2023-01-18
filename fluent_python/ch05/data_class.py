@@ -31,7 +31,7 @@ Coordinate = typing.NamedTuple('Coordinate',lat=float,lon=float)
 print(issubclass(Coordinate, tuple))
 print(typing.get_type_hints(Coordinate))
 
-from typing import NamedTuple, Optional
+from typing import ClassVar, NamedTuple, Optional
 
 class Coordinate(NamedTuple):
     lat: float
@@ -229,3 +229,11 @@ print(City.__match_args__)
 print(match_asian_cities())
 print(match_asian_countries())
 print(match_asian_cities_pos())
+
+@dataclass
+class Spam:
+    repeat: ClassVar[int] = 99
+    
+spam_inst = Spam()
+Spam.repeat = 100
+print(spam_inst.repeat)
