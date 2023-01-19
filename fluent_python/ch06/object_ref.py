@@ -75,3 +75,11 @@ print(bus2.passengers)
 
 print(id(bus1.passengers), id(bus2.passengers), id(bus3.passengers))
 print(bus3.passengers)
+
+a = [10, 20]
+b = [a, 30]
+a.append(b)
+print(a)
+
+c = copy.deepcopy(a)
+print(c)
