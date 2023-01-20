@@ -83,3 +83,21 @@ print(d_proxy)
 d[2] = 'B'
 print(d_proxy)
 print(d_proxy[2])
+
+
+from collections import Counter
+ct = Counter('abracadabra')
+print(ct)
+
+ct.update('aaaazzz')
+print(ct)
+
+print(ct.most_common(3))
+
+s = {1}
+print(type(s))
+print(s.pop())
+
+
+fs = frozenset(range(10))
+print(fs)
