@@ -179,3 +179,13 @@ bus = TwilightBus(basketball_team)
 bus.drop('Tina')
 bus.drop('Pat')
 print(basketball_team)
+
+
+a = [1, 2]
+b = a
+del a
+print(b)
+
+b = [3]
+print(b)
+print(a)
