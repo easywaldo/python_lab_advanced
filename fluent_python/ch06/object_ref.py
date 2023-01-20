@@ -148,3 +148,8 @@ print(bus2.passengers is bus3.passengers)
 print(bus1.passengers)
 
 print(bus1.passengers is bus2.passengers)
+
+
+print(dir(HauntedBus.__init__))
+print(HauntedBus.__init__.__defaults__)
+print(HauntedBus.__init__.__defaults__[0] is bus2.passengers)
