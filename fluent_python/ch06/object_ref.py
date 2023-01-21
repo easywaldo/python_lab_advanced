@@ -188,4 +188,23 @@ print(b)
 
 b = [3]
 print(b)
-print(a)
+# print(a) # error raised
+
+
+import weakref
+
+s1 = {1, 2, 3,}
+s2 = s1
+
+def bye():
+    print("... like tears in the rain")
+
+ender = weakref.finalize(s1, bye)
+print(ender.alive)  # True  - s1 과 s2 가 모두 {1,2,3} 에 대한 참조를 하고 있음
+
+del s1  # print bye message
+print(ender.alive)  # True - s2
+
+s2 = 'spam'
+print(ender.alive) # False - 이미 s2 에 대한 참조값이 변경이 되었으므로 {1,2,3} 에 대한 참조 변수가 없다
+
