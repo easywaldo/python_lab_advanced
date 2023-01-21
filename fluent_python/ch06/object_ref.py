@@ -215,3 +215,11 @@ print(t2 is t1)
 
 t3 = t1[:]
 print(t3 is t1)
+
+print('=============')
+t1 = (1,2,3,)
+t3 = (1,2,3,)
+print(t3 is t1)
+s1 = 'ABC'  # 문자열에 대한 참조
+s2 = 'ABC'  # 문자열에 대한 참조
+print(s2 is s1)
