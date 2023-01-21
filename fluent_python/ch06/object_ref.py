@@ -208,3 +208,10 @@ print(ender.alive)  # True - s2
 s2 = 'spam'
 print(ender.alive) # False - 이미 s2 에 대한 참조값이 변경이 되었으므로 {1,2,3} 에 대한 참조 변수가 없다
 
+
+t1 = (1, 2, 3)
+t2 = tuple(t1)
+print(t2 is t1)
+
+t3 = t1[:]
+print(t3 is t1)
