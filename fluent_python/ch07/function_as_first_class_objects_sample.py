@@ -41,3 +41,12 @@ hyphenate = methodcaller('replace', ' ', '-')
 print(hyphenate(s))
 
 print(str.upper(s))
+
+
+from operator import mul
+from functools import partial
+
+triple = partial(mul, 3)
+print(triple(7))
+
+print(list(map(triple, range(1, 10))))
