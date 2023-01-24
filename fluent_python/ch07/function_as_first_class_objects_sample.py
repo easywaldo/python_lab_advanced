@@ -30,3 +30,14 @@ from operator import attrgetter
 name_lat = attrgetter('name', 'coord.lat')
 for city in sorted(metro_areas, key=attrgetter('coord.lat')):
     print(name_lat(city))
+
+
+from operator import methodcaller
+s = 'The time has come'
+upcase  = methodcaller('upper')
+print(upcase(s))
+
+hyphenate = methodcaller('replace', ' ', '-')
+print(hyphenate(s))
+
+print(str.upper(s))
