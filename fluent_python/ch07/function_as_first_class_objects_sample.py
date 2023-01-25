@@ -62,3 +62,9 @@ print(s1, s2)
 print(s1 == s2)
 print(nfc(s1) == nfc(s2))
 
+
+def f(a, *, b):
+    return a, b
+
+print(f(1, b=2))
+print(f(1,2))
