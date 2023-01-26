@@ -32,3 +32,8 @@ def double(x: abc.Sequence):
     Unsupported operand types for * ("Sequence[Any]" and "int")
     """
     return x * 2
+
+def test_double_seq():
+    seq_num = yield [n for n in range(1,5)]
+    assert double(seq_num) == list(2,4,6,8,10)
+    assert double("hello world") == "hello worldhello world"
