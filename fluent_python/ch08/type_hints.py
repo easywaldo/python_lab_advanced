@@ -24,3 +24,11 @@ def test_show_count_zero():
 def test_irregular() -> None:
     got = show_count(2, 'child', 'children')
     assert got == '2 children'
+    
+from collections import abc
+
+def double(x: abc.Sequence):
+    """
+    Unsupported operand types for * ("Sequence[Any]" and "int")
+    """
+    return x * 2
