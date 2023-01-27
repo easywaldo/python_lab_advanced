@@ -17,3 +17,7 @@ def test_show_count(qty, expected):
 def test_show_count_zero():
     got = show_count(0, 'part')
     assert got == 'no parts'
+    
+def test_irregular() -> None:
+    got = show_count(2, 'child', 'children')
+    assert got == '2 children'
