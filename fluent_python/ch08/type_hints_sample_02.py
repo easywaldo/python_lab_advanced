@@ -8,3 +8,9 @@ def parse_token(token: str) -> Union[str, float]:
         return token
 
 print(parse_token("19.352"))
+
+
+def tokenize(text: str) -> list[str]:
+    return text.upper().split()
+
+print(tokenize("hello world"))
