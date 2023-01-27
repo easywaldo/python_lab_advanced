@@ -1,5 +1,4 @@
-from typing import Union
-
+from typing import Union, List
 
 def parse_token(token: str) -> Union[str, float]:
     try:
@@ -10,7 +9,7 @@ def parse_token(token: str) -> Union[str, float]:
 print(parse_token("19.352"))
 
 
-def tokenize(text: str) -> list[str]:
+def tokenize(text: str) -> List[str]:
     return text.upper().split()
 
 print(tokenize("hello world"))
