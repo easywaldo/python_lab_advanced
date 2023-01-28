@@ -54,3 +54,20 @@ def alert_duck(birdie: Duck) -> None:
     
 def alert_bird(birdie: Bird) -> None:
     birdie.quack()  # error: "Bird" has no attribute "quack"
+
+from typing import NamedTuple
+
+from geolib import geohash as gh
+
+PERCISON = 9
+
+class Coordinate(NamedTuple):
+    lat: float
+    lon: float
+
+def geohash(lat_lon: Coordinate) -> str:
+    return gh.encode(*lat_lon, PERCISON)
+
+
+coordinate = Coordinate(lat=20.34, lon=31.38)
+print(coordinate._asdict())
