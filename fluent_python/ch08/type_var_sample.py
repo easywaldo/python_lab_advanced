@@ -1,4 +1,5 @@
-from collections.abc import Iterable
+from collections import Counter
+from collections.abc import Iterable, Hashable
 from decimal import Decimal
 from fractions import Fraction
 from typing import TypeVar
@@ -6,9 +7,21 @@ from typing import TypeVar
 NumberT = TypeVar('NumberT', float, Decimal, Fraction, str)
 
 def mode(data: Iterable[NumberT]) -> NumberT:
-    pass
+    print('called mode number_t')
+    return 100
 
 
-from statistics import mode
+# from statistics import mode
 mode_list = mode(["red", "green", "blue", "yellow", "red", "green", "blue", "yellow", "red", "red"])
 print(mode_list)
+
+
+def mode(data: Iterable[Hashable]) -> Hashable:
+    print('called mode hashtable')
+    pairs = Counter(data).most_common(1)
+    if len(pairs) == 0:
+        raise ValueError('no mode for empty data')
+    return pairs[0][0]
+
+h_t = list([hash("easywaldo"), hash("alpha"), hash("bravo"), hash("alpha"), hash("alpha"), hash("easywaldo")])
+print(mode(h_t))
