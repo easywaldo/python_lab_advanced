@@ -79,3 +79,8 @@ coordinate = Coordinate(lat=20.34, lon=31.48)
 print(coordinate._asdict())
 
 print(display(coordinate))
+
+
+from typing import TypeAlias
+
+FromTo: TypeAlias = tuple[str, str]
