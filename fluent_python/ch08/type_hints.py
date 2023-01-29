@@ -98,3 +98,6 @@ def sample(population: Sequence[T], size: int) -> list[T]:
     result = list(population)
     shuffle(result)
     return result[:size]
+
+result = sample(["alpha", "beta", "bravo", "charly"], 4)
+print(result)
