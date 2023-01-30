@@ -25,3 +25,12 @@ def mode(data: Iterable[Hashable]) -> Hashable:
 
 h_t = list([hash("easywaldo"), hash("alpha"), hash("bravo"), hash("alpha"), hash("alpha"), hash("easywaldo")])
 print(mode(h_t))
+
+
+T = TypeVar('T', int, float, complex)
+def top(series: Iterable[T], length: int) -> list[T]:
+    ordered = sorted(series, reverse=True)
+    return ordered[:length]
+
+number_top_list = top([4,1,5,2,6,7,3], 3)
+print(number_top_list)
