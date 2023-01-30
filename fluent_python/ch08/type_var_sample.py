@@ -2,6 +2,7 @@ from collections import Counter
 from collections.abc import Iterable, Hashable
 from decimal import Decimal
 from fractions import Fraction
+
 from typing import TypeVar
 
 NumberT = TypeVar('NumberT', float, Decimal, Fraction, str)
@@ -59,5 +60,28 @@ print(sorted(l))
 from typing import Protocol, Any
 
 class SupportsLessThan(Protocol):
+    def __init__(self, n): 
+        self.n = n
     def __lt__(self, other:Any) -> bool:
-        pass
+        print('called... LT')
+        return self.n < other.n
+    def __repr__(self) -> str: return f'Spam({self.n})'
+    
+LT = TypeVar('LT', bound=SupportsLessThan)
+def top(series: Iterable[LT], length: int) -> list[LT]:
+    ordered = sorted(series, reverse=True)
+    return ordered[:length]
+
+from collections.abc import Iterator
+from random import randrange
+fruit = 'mango pear apple kiwi banana hello'.split()
+series: Iterator[tuple[int, str]] = ((len(s), s) for s in fruit)
+length = 3
+expected = [(6, 'banana'), (5, 'mango'), (5, 'hello')]
+result = top(series, length)
+assert result == expected
+print(result)
+
+l = [SupportsLessThan(randrange(1, 1000)) for _ in range(1,10)]
+print(sorted(l, reverse=True))
+print(top(l, 3))
