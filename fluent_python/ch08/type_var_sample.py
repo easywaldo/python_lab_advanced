@@ -34,3 +34,6 @@ def top(series: Iterable[T], length: int) -> list[T]:
 
 number_top_list = top([4,1,5,2,6,7,3], 3)
 print(number_top_list)
+
+l = 'mango pear apple kiwi banana'.split()
+print(top(l, 3))
