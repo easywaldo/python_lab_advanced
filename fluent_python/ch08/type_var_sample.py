@@ -41,3 +41,7 @@ print(top(l, 3))
 l2 = [(len(s), s) for s in l]
 print(l2)
 print(top(l2, 3))
+
+l = [object() for _ in range(4)]
+print(l)
+print(sorted(l))    # TypeError: '<' not supported between instances of 'object' and 'object'
