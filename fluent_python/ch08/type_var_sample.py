@@ -54,4 +54,10 @@ class Spam:
 
 l = [Spam(n) for n in range(5, 0, -1)]
 print(l)
-print(sorted(l))        
+print(sorted(l))
+
+from typing import Protocol, Any
+
+class SupportsLessThan(Protocol):
+    def __lt__(self, other:Any) -> bool:
+        pass
