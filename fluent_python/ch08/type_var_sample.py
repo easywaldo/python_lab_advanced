@@ -37,3 +37,7 @@ print(number_top_list)
 
 l = 'mango pear apple kiwi banana'.split()
 print(top(l, 3))
+
+l2 = [(len(s), s) for s in l]
+print(l2)
+print(top(l2, 3))
