@@ -3,7 +3,7 @@ from collections.abc import Iterable, Hashable
 from decimal import Decimal
 from fractions import Fraction
 
-from typing import TypeVar
+from typing import Optional, TypeVar
 
 NumberT = TypeVar('NumberT', float, Decimal, Fraction, str)
 
@@ -105,3 +105,15 @@ def display_ok(temperature: complex) -> None:
     print(temperature)
 
 update(probe_ok, display_ok)
+
+
+def tag(
+    name: str,
+    /,
+    *content: str,
+    class_: Optional[str] = None,
+    **attrs: str,
+) -> str:
+    return f"{name} {content} {class_} {attrs}"
+
+print(tag("easywaldo", content="hello world", class_="alhpa", grade="A", type="SUPER"))
