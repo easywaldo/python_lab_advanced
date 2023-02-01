@@ -39,3 +39,12 @@ def main():
     
 if __name__ == '__main__':
     main()
+
+b = 6
+def f1(a):
+    global b
+    print(a)
+    print(b)
+    b = 9
+f1(3)
+print(b)
