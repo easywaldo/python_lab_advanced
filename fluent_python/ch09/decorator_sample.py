@@ -98,5 +98,21 @@ def make_averager():
 
     return averager
 
+# avg = make_averager()
+# print(avg(10)) # UnboundLocalError: cannot access local variable 'count' where it is not associated with a value
+
+def make_averager():
+    count = 0
+    total = 0
+    
+    def averager(new_value):
+        nonlocal count, total
+        count += 1
+        total += new_value
+        return total / count
+    
+    return averager
+
 avg = make_averager()
-print(avg(10)) # UnboundLocalError: cannot access local variable 'count' where it is not associated with a value
+print(avg(10))
+print(avg(20))
