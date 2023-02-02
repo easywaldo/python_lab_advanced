@@ -85,3 +85,18 @@ print(avg.__code__.co_varnames)
 print(avg.__code__.co_freevars)
 print(avg.__closure__)
 print(avg.__closure__[0].cell_contents)
+
+
+def make_averager():
+    count = 0
+    total = 0
+    
+    def averager(new_value):
+        count += 1
+        total += new_value
+        return total / count
+
+    return averager
+
+avg = make_averager()
+print(avg(10)) # UnboundLocalError: cannot access local variable 'count' where it is not associated with a value
