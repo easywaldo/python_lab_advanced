@@ -211,3 +211,58 @@ def fibonacci(n):
 if __name__ == '__main__':
     print(fibonacci(128))
 
+
+from functools import singledispatch
+from collections import abc
+import fractions
+import decimal
+import html
+import numbers
+
+@singledispatch
+def htmlize(obj: object) -> str:
+    content = html.escape(repr(obj))
+    return f'<pre>{content}</pre>'
+
+@htmlize.register
+def _(text: str) -> str:
+    content = html.escape(text).replace('\n', '<br/>\n')
+    return f'<p>{content}</p>'
+
+@htmlize.register
+def _(seq: abc.Sequence) -> str:
+    inner = '</li>\n<li>'.join(htmlize(item) for item in seq)
+    return '<ul>\n<li>' + inner + '</li>\n</ul>'
+
+@htmlize.register
+def _(n: numbers.Integral) -> str:
+    return f'<pre>{n} (0x{n:x})</pre>'
+
+@htmlize.register
+def _(n: bool) -> str:
+    return f'<pre>{n}</pre>'
+
+@htmlize.register(fractions.Fraction)
+def _(x) -> str:
+    frac = fractions.Fraction(x)
+    return f'<pre>{frac.numerator}/{frac.denominator}</pre>'
+
+@htmlize.register(decimal.Decimal)
+@htmlize.register(float)
+def _(x) -> str:
+    frac = fractions.Fraction(x).limit_denominator()
+    return f'<pre>{x} ({frac.numerator}/{frac.denominator})</pre>'
+
+class CustomerData:
+    def __init__(self, name, description):
+        self.name = name
+        self.description = description
+
+print(htmlize([1,2,3,4,5,6,7,8,9,100]))
+print(htmlize("hello world"))
+print(htmlize(False))
+print(htmlize(CustomerData(name="easywaldo", description="good job")))
+print(htmlize(3.1456412))
+print(htmlize(1208403582349065753496739465783047845607844356456756785564567456745674567))
+print(htmlize(14e10))
+print(htmlize("This is good paragraph in document. \n So It's very nice of you."))
