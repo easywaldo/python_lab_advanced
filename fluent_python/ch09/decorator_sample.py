@@ -266,3 +266,19 @@ print(htmlize(3.1456412))
 print(htmlize(1208403582349065753496739465783047845607844356456756785564567456745674567))
 print(htmlize(14e10))
 print(htmlize("This is good paragraph in document. \n So It's very nice of you."))
+
+
+registry = list()
+
+def register(func):
+    print(f'running register({func}')
+    registry.append(func)
+    return func
+
+@register
+def f1():
+    print('running f1()')
+    
+print('running main()')
+print('registry ->', registry)
+f1()
