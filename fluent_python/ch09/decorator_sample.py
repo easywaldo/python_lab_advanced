@@ -328,7 +328,7 @@ def clock(fmt=DEFAULT_FMT):
             args = ', '.join(repr(arg) for arg in _args)
             print(f'args {args}')
             result = repr(_result)
-            print(fmt.format(**locals()))
+            print(f'fmt.format **locals() {fmt.format(**locals())}')
             return _result
         return clocked
     return decorate
@@ -364,7 +364,7 @@ class clock:
             args = ', '.join(repr(arg) for arg in _args)
             print(f'args {args}')
             result = repr(_result)
-            print(self.fmt.format(**locals()))
+            print(f'fmt.format **locals() {self.fmt.format(**locals())}')
             return _result
         return clocked
 
