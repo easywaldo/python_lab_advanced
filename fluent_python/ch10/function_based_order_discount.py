@@ -100,3 +100,10 @@ print(Order(joe, long_cart, best_promo))
 print(Order(joe, banana_cart, best_promo))
 print(Order(ann, cart, best_promo))
 
+promos = [promo for name, promo in globals().items() if name.endswith('_promo') and name != 'best_promo']
+
+print('================================================================')
+
+print(Order(joe, long_cart, best_promo))
+print(Order(joe, banana_cart, best_promo))
+print(Order(ann, cart, best_promo))
