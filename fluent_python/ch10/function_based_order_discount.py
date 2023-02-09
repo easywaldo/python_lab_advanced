@@ -90,3 +90,13 @@ joe_order = Order(joe, long_cart, large_order_promo)
 print(joe_order)
 joe_order = Order(joe, cart, large_order_promo)
 print(joe_order)
+
+promos = [fidelity_promo, bulk_item_promo, large_order_promo]
+
+def best_promo(order: Order) -> Decimal:
+    return max(promo(order) for promo in promos)
+
+print(Order(joe, long_cart, best_promo))
+print(Order(joe, banana_cart, best_promo))
+print(Order(ann, cart, best_promo))
+
