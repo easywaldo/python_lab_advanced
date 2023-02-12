@@ -154,3 +154,28 @@ print(Order(joe, long_cart, best_promo))
 print(Order(joe, banana_cart, fidelity))
 print(Order(ann, cart, large_order))
 print(Order(ann, cart, bulk_item))
+
+
+print("================================================================")
+class MacroCommand:
+    """
+    A command that executes a list of commands
+    """
+    
+    def __init__(self, commands):
+        print('init..')
+        self.commands = list(commands)
+        
+    def __call__(self):
+        print('called....')
+        print(self.commands)
+        for command in self.commands:
+            command()
+    
+    
+class ACommand:
+    def __call__(self):
+        print('A command')
+
+macro_commands = MacroCommand([ACommand()])
+macro_commands()
