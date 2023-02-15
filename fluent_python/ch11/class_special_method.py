@@ -50,3 +50,24 @@ print(octets)
 print(abs(v1))
 
 print(bool(v1), bool(Vector2d(0, 0)))
+
+
+
+class Demo:
+    @classmethod
+    def klassmeth(*args):
+        return args
+    
+    @staticmethod
+    def statmeth(*args):
+        return args
+    
+dk = Demo.klassmeth()
+dk_spam = Demo.klassmeth('spam')
+ds = Demo.statmeth()
+ds1 = Demo.statmeth('spam')
+
+print(dk)
+print(dk_spam)
+print(ds)
+print(ds1)
