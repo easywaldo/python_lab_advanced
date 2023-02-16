@@ -29,6 +29,11 @@ class Vector2d:
     
     def __bool__(self):
         return bool(abs(self))
+    
+    def __format__(self, fmt_spec=''):
+        components = (format(c, fmt_spec) for c in self)
+        return '({}, {})'.format(*components)
+
 
 v1 = Vector2d(3, 4)
 print(v1.x, v1.y)
@@ -85,3 +90,8 @@ print("It's now {:%I:%M %p}".format(now))
 v1 = Vector2d(3, 4)
 print(format(v1))
 print(format(v1, '.3f'))    # TypeError: non-empty format string passed to object.__format__
+
+v1 = Vector2d(3, 4)
+print(format(v1))
+print(format(v1, '.2f'))
+print(format(v1, '.3e'))
