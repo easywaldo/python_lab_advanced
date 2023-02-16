@@ -71,3 +71,12 @@ print(dk)
 print(dk_spam)
 print(ds)
 print(ds1)
+
+
+print(format(42, 'b'))
+print(format(2 / 3, '.1%'))
+
+from datetime import datetime
+now = datetime.now()
+print(format(now, '%H:%M:%S'))
+print("It's now {:%I:%M %p}".format(now))
