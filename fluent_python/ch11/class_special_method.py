@@ -80,3 +80,8 @@ from datetime import datetime
 now = datetime.now()
 print(format(now, '%H:%M:%S'))
 print("It's now {:%I:%M %p}".format(now))
+
+
+v1 = Vector2d(3, 4)
+print(format(v1))
+print(format(v1, '.3f'))    # TypeError: non-empty format string passed to object.__format__
