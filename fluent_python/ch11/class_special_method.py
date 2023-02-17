@@ -41,6 +41,12 @@ class Vector2d:
         components = (format(c, fmt_spec) for c in coords)
         return outer_fmt.format(*components)
     
+    @classmethod
+    def frombytes(cls, octets):
+        typecode =chr(octets[0])
+        memv = memoryview(octets[1:]).cast(typecode)
+        return cls(*memv)
+    
     def angle(self):
         return math.atan2(self.x, self.y)
     
@@ -58,6 +64,7 @@ class Vector2d:
     def __hash__(self) -> int:
         return hash((self.x, self.y))
     
+    __match_args__ = ('x', 'y')
 
 
 v1 = Vector2d(3, 4)
@@ -134,3 +141,70 @@ print(v1.x, v1.y)
 v1 = Vector2d(3, 4)
 v2 = Vector2d(3.1, 4.2)
 print(hash(v1), hash(v2))
+
+
+def keyword_pattern_demo(v: Vector2d) -> None:
+    match v:
+        case Vector2d(0, 0):
+            print(f'{v!r} is null')
+        case Vector2d(0):
+            print(f'{v!r} is vertical')
+        case Vector2d(_, 0):
+            print(f'{v!r} is horizontal')
+        case Vector2d(x, y) if x==y:
+            print(f'{v!r} is diagonal')
+        case _:
+            print(f'{v!r} is awesome')
+
+
+v1 = Vector2d(3, 4)
+print(v1.x, v1.y)
+x, y = v1
+print(x, y)
+print(v1)
+
+v1_clone = eval(repr(v1))
+assert v1 == v1_clone
+
+print(v1)
+
+octets = bytes(v1)
+print(octets)
+
+print(abs(v1))
+print(bool(v1), bool(Vector2d(0, 0)))
+
+
+v1_clone = Vector2d.frombytes(bytes(v1))
+print(v1_clone)
+assert v1 == v1_clone
+
+print(format(v1))
+print(format(v1, '.2f'))
+print(format(v1, '.3e'))
+
+print(Vector2d(0, 0).angle())
+print(Vector2d(1, 0).angle())
+
+epsilon = 10**-8
+v1 = abs(Vector2d(0, 1).angle() - math.pi/2) 
+v2 = abs(Vector2d(1, 1).angle() - math.pi/4)
+print(v1)
+print(v2)
+print(epsilon)
+assert v1 > epsilon
+assert v2 < epsilon
+
+v1 = format(Vector2d(1, 1), 'p')
+v2 = format(Vector2d(1, 1), '.3ep')
+v3 = format(Vector2d(1, 1), '0.5fp')
+print(v1)
+print(v2)
+print(v3)
+
+
+
+v1 = Vector2d(3, 4)
+v2 = Vector2d(3.1, 4.2)
+print(v1.x, v1.y)
+print(len({v1, v2}))
