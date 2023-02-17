@@ -5,8 +5,8 @@ class Vector2d:
     typecode = 'd'
     
     def __init__(self, x, y):
-        self.x = float(x)
-        self.y = float(y)
+        self.__x = float(x)
+        self.__y = float(y)
         
     def __iter__(self):
         return (i for i in (self.x, self.y))
@@ -54,6 +54,9 @@ class Vector2d:
     
     def __iter__(self):
         return (i for i in (self.x, self.y))
+    
+    def __hash__(self) -> int:
+        return hash((self.x, self.y))
     
 
 
@@ -125,4 +128,9 @@ print(format(Vector2d(1, 1), '0.5fp'))
 
 
 print(v1.x, v1.y)
-v1.x = 7    # AttributeError: property 'x' of 'Vector2d' object has no setter
+# v1.x = 7    # AttributeError: property 'x' of 'Vector2d' object has no setter
+
+
+v1 = Vector2d(3, 4)
+v2 = Vector2d(3.1, 4.2)
+print(hash(v1), hash(v2))
