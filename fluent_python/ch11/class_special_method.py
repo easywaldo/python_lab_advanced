@@ -43,6 +43,18 @@ class Vector2d:
     
     def angle(self):
         return math.atan2(self.x, self.y)
+    
+    @property
+    def x(self):
+        return self.__x
+    
+    @property
+    def y(self):
+        return self.__y
+    
+    def __iter__(self):
+        return (i for i in (self.x, self.y))
+    
 
 
 v1 = Vector2d(3, 4)
@@ -110,3 +122,7 @@ print(format(v1, '.3e'))
 print(format(Vector2d(1, 1), 'p'))
 print(format(Vector2d(1, 1), '.3ep'))
 print(format(Vector2d(1, 1), '0.5fp'))
+
+
+print(v1.x, v1.y)
+v1.x = 7    # AttributeError: property 'x' of 'Vector2d' object has no setter
