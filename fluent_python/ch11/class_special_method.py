@@ -208,3 +208,8 @@ v1 = Vector2d(3, 4)
 v2 = Vector2d(3.1, 4.2)
 print(v1.x, v1.y)
 print(len({v1, v2}))
+
+
+v1 = Vector2d(3, 4)
+print(v1.__dict__)
+print(v1._Vector2d__x)
