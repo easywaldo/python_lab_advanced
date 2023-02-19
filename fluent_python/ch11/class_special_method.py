@@ -238,3 +238,15 @@ print(op.x)
 op.color = 'green'
 
 print(op.__dict__)
+
+
+class ColorPixel(Pixel):
+    __slots__ = ('color',)
+    
+cp = ColorPixel()
+# print(cp.__dict__)    # AttributeError: 'ColorPixel' object has no attribute '__dict__'. Did you mean: '__dir__'?
+
+cp.x = 2
+cp.color = 'blue'
+cp.flavor = 'banana'    # AttributeError: 'ColorPixel' object has no attribute 'flavor'
+
