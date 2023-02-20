@@ -41,3 +41,15 @@ if __name__ == '__main__':
     
     Vector2d.typecode = 'f'
     print(Vector2d.typecode)
+    
+
+class ShortVector2d(Vector2d):
+    typecode = 'f'
+    
+    def __repr__(self):
+        class_name = type(self).__name__
+        return '{}({!r}, {!r})'.format(class_name, *self)
+    
+sv = ShortVector2d(1/11, 1/27)
+print(sv)
+print(len(bytes(sv)))
