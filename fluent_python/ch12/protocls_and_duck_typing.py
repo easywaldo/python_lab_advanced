@@ -9,7 +9,7 @@ class FrenchDeck:
     def __init__(self):
         self._cards = [Card(rank, suit) for suit in self.suits for rank in self.ranks]
         
-    def __len__(self):
+    def __len__(self):      # 시쿼스를 구현하기 위해서는 불필요한 메서드
         return len(self._cards)
     
     def __getitem__(self, position):

@@ -37,6 +37,12 @@ class Vector:
         typecode = chr(octets[0])
         memv = memoryview(octets[1:]).cast(typecode)
         return cls(memv)
+    
+    def __len__(self):
+        return len(self._components)
+    
+    def __getitem__(self, index):
+        return self._components[index]
 
 
 if __name__ == '__main__':
@@ -45,6 +51,11 @@ if __name__ == '__main__':
     
     v1 = Vector([3, 4, 5])
     print(v1)
+    print(v1[0])
+    print(v1[-1])
     
     v2 = Vector(range(100))
     print(v2)
+    print(v2[1:4])
+    
+    
