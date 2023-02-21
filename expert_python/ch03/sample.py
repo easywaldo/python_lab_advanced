@@ -27,3 +27,7 @@ def display(a, b, c, d, e):
     print(e)
 
 display(*mylist)
+
+
+my_func = lambda x: x**2
+print(my_func(20))
