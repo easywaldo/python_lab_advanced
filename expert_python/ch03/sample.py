@@ -31,3 +31,7 @@ display(*mylist)
 
 my_func = lambda x: x**2
 print(my_func(20))
+
+MyClass = type("MyClass", (dict, ), {})
+myc = MyClass(name="easywaldo")
+print(myc)
