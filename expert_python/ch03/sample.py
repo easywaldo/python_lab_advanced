@@ -35,3 +35,13 @@ print(my_func(20))
 MyClass = type("MyClass", (dict, ), {})
 myc = MyClass(name="easywaldo")
 print(myc)
+
+user = {
+    "first_name": (first_name := "John"),
+    "last_name": (last_name := "Doe"),
+    "display_name": f"{first_name} {last_name}",
+    "height": (height := 168),
+    "weight": (weight := 70),
+    "bmi": weight / (height / 100) ** 2,
+}
+print(first_name, last_name, weight, height)
