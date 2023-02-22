@@ -1,4 +1,5 @@
 from array import array
+import operator
 import reprlib
 import math
 
@@ -41,7 +42,11 @@ class Vector:
     def __len__(self):
         return len(self._components)
     
-    def __getitem__(self, index):
+    def __getitem__(self, key):
+        if isinstance(key, slice):
+            cls = type(self)
+            return cls(self._components[key])
+        index = operator.index(key)
         return self._components[index]
 
 
@@ -57,5 +62,12 @@ if __name__ == '__main__':
     v2 = Vector(range(100))
     print(v2)
     print(v2[1:4])
+    
+    print('================================================================')
+    v7 = Vector(range(7))
+    print(v7[-1])
+    print(v7[1:4])
+    print(v7[-1:])
+    print(v7[1,2])  # TypeError: 'tuple' object cannot be interpreted as an integer
     
     
