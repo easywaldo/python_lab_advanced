@@ -12,3 +12,5 @@ if __name__ == '__main__':
     print(s[1:4:2, 9])
     print(s[1:4:2, 7:9])
     
+    print(slice)
+    print(dir(slice))
