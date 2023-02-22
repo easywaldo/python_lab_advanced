@@ -45,3 +45,17 @@ user = {
     "bmi": weight / (height / 100) ** 2,
 }
 print(first_name, last_name, weight, height)
+
+
+def concatenate(first: str, second: str, /, *, delim: str):
+    return delim.join([first, second])
+
+print(concatenate("John", "waldo", delim=" "))
+# print(concatenate("John", "waldo", " "))    # TypeError: concatenate() takes 2 positional arguments but 3 were given
+
+def concatenate(*items, delim: str):
+    return delim.join(items)
+
+print(concatenate("John", "Waldo", delim=" "))
+print(concatenate("John", "Waldo", "easywaldo", delim=" "))
+print(concatenate("easywaldo", delim=" "))
