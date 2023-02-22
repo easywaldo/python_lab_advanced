@@ -14,3 +14,8 @@ if __name__ == '__main__':
     
     print(slice)
     print(dir(slice))
+    
+    s1 = slice(None, 10, 2).indices(5)
+    s2 = slice(-3, None, None).indices(5)
+    print(s1)
+    print(s2)
