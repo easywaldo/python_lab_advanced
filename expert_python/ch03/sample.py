@@ -59,3 +59,17 @@ def concatenate(*items, delim: str):
 print(concatenate("John", "Waldo", delim=" "))
 print(concatenate("John", "Waldo", "easywaldo", delim=" "))
 print(concatenate("easywaldo", delim=" "))
+
+
+from graphlib import TopologicalSorter
+table_ref = {
+    "customers": set(),
+    "accounts": {
+        "customers"
+    },
+    "products": set(),
+    "orders": {"accounts", "customers"},
+    "order_products": {"orders", "products"},
+}
+sorter = TopologicalSorter(table_ref)
+print(list(sorter.static_order()))
