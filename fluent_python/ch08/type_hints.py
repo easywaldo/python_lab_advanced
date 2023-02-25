@@ -56,4 +56,54 @@ def alert_duck(birdie: Duck) -> None:
     
 def alert_bird(birdie: Bird) -> None:
     birdie.quack()  # error: "Bird" has no attribute "quack"
+<<<<<<< HEAD
 >>>>>>> 0c92e51e789137a3b270b0a57ad258664f517da9
+=======
+
+from typing import NamedTuple
+
+from geolib import geohash as gh
+
+PERCISON = 9
+
+class Coordinate(NamedTuple):
+    lat: float
+    lon: float
+
+def geohash(lat_lon: Coordinate) -> str:
+    return gh.encode(*lat_lon, PERCISON)
+
+def display(lat_lon: tuple[float, float]) -> str:
+    lat, lon = lat_lon
+    ns = 'N' if lat >= 0 else 'S'
+    ew = 'E' if lon >= 0 else 'W'
+    return f'{abs(lat):0.1f}°{ns}, {abs(lon):0.1f}°{ew}'
+
+
+coordinate = Coordinate(lat=20.34, lon=31.48)
+print(coordinate._asdict())
+
+print(display(coordinate))
+
+
+from typing import TypeAlias
+
+FromTo: TypeAlias = tuple[str, str]
+
+
+from collections.abc import Sequence
+from random import shuffle
+from typing import TypeVar
+
+T = TypeVar('T')
+
+def sample(population: Sequence[T], size: int) -> list[T]:
+    if size < 1:
+        raise ValueError('size must be >= 1')
+    result = list(population)
+    shuffle(result)
+    return result[:size]
+
+result = sample(["alpha", "beta", "bravo", "charly"], 4)
+print(result)
+>>>>>>> bf08e3ca9a388b24b3f21d6176583a0f6cc4ba61
