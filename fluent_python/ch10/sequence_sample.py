@@ -27,3 +27,18 @@ if __name__ == '__main__':
         print(word)
         
     print(list(s))
+
+    s3 = Sentence('Pig and Pepper')
+    it = iter(s3)
+    print(it)
+    
+    print('================================================================')
+    print(next(it))
+    print(next(it))
+    print(next(it))
+    # next(it)
+    
+    print(list(it))
+    print(list(iter(s3)))
+    
+    
