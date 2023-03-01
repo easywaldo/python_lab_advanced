@@ -29,3 +29,18 @@ if __name__ == '__main__':
     f = Foo()
     print(isinstance(f, abc.Iterable))
     
+    print('================================================================')
+    # 1 way - for in
+    s = 'ABC'
+    for char in s:
+        print(char)
+    # 2 way - while
+    it = iter(s)
+    while True:
+        try:
+            print(next(it))
+        except StopIteration:
+            del it
+            break
+
+    
