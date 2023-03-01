@@ -77,4 +77,30 @@ print(it)
 print(next(it))
 print(next(it))
 print(next(it))
+# print(next(it))   raise StopIteration("no more next elements")
+
+
+
+class Sentence:
+    def __init__(self, text):
+        self.text = text
+        self.words = RE_WORD.findall(text)
+        
+    def __repr__(self) -> str:
+        return 'Sentence(%s)' % reprlib.repr(self.text)
+    
+    def __iter__(self):
+        for word in self.words:
+            yield word
+        return
+
+print('================================================================')
+s3 = Sentence('서울 부산 제주 광주 강원 대전')
+it = iter(s3)
+print(it)
+print(next(it))
+print(next(it))
+print(next(it))
+print(next(it))
+print(next(it))
 print(next(it))
