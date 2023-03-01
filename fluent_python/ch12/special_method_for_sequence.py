@@ -2,6 +2,10 @@ class MySeq:
     def __getitem__(self, index):
         return index
     
+class Foo:
+    def __iter__(self):
+        pass
+    
 
 
 if __name__ == '__main__':
@@ -19,3 +23,9 @@ if __name__ == '__main__':
     s2 = slice(-3, None, None).indices(5)
     print(s1)
     print(s2)
+    
+    from collections import abc
+    print(issubclass(Foo, abc.Iterable))
+    f = Foo()
+    print(isinstance(f, abc.Iterable))
+    
