@@ -8,7 +8,7 @@ def fetch_user(user_id):
         "location": f"loc-{user_id}",
     }
     
-@lru_cache
+@lru_cache(maxsize=2)
 def get_user(user_id):
     return fetch_user(user_id)
 
