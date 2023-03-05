@@ -43,3 +43,27 @@ d.clear()
 d.extendleft('abc')
 print(d)
 
+
+print('================================================================')
+from collections import defaultdict
+s = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
+d = defaultdict(list)
+for k, v in s:
+    d[k].append(v)
+sorted_dict = sorted(d.items())
+print(sorted_dict)
+print(type(sorted_dict))
+print(sorted_dict[1])
+print(d['yellow'])
+
+
+print('================================================================')
+s = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
+d = defaultdict(dict)
+for k, v in s:
+    d[k] = v
+sorted_dict = sorted(d.items())
+print(sorted_dict)
+print(type(sorted_dict))
+print(d)
+print(d['blue'])
