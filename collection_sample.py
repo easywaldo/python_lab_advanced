@@ -67,3 +67,10 @@ print(sorted_dict)
 print(type(sorted_dict))
 print(d)
 print(d['blue'])
+
+
+d = {}
+for k, v in s:
+    d.setdefault(k, []).append(v)
+result = sorted(d.items())
+print(result)
