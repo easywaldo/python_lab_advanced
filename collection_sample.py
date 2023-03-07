@@ -74,3 +74,12 @@ for k, v in s:
     d.setdefault(k, []).append(v)
 result = sorted(d.items())
 print(result)
+
+
+print("\n================================")
+s = 'mississippi'
+d = defaultdict(int)
+for k in s:
+    d[k] += 1
+result = sorted(d.items())
+print(result)
