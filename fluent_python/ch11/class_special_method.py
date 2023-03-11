@@ -208,3 +208,45 @@ v1 = Vector2d(3, 4)
 v2 = Vector2d(3.1, 4.2)
 print(v1.x, v1.y)
 print(len({v1, v2}))
+
+
+v1 = Vector2d(3, 4)
+print(v1.__dict__)
+print(v1._Vector2d__x)
+
+
+class Pixel:
+    __slots__ = ('x', 'y')
+    
+p = Pixel()
+# print(p.__dict__)       # AttributeError: 'Pixel' object has no attribute '__dict__'. Did you mean: '__dir__'?
+
+p.x = 10
+p.y = 20
+# p.color = 'red' # AttributeError: 'Pixel' object has no attribute 'color'
+
+
+class OpenPixel(Pixel):
+    pass
+
+op = OpenPixel()
+print(op.__dict__)
+
+op.x = 8
+print(op.__dict__)
+print(op.x)
+op.color = 'green'
+
+print(op.__dict__)
+
+
+class ColorPixel(Pixel):
+    __slots__ = ('color',)
+    
+cp = ColorPixel()
+# print(cp.__dict__)    # AttributeError: 'ColorPixel' object has no attribute '__dict__'. Did you mean: '__dir__'?
+
+cp.x = 2
+cp.color = 'blue'
+cp.flavor = 'banana'    # AttributeError: 'ColorPixel' object has no attribute 'flavor'
+
