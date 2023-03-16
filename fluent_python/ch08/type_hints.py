@@ -24,6 +24,8 @@ def test_show_count_zero():
 def test_irregular() -> None:
     got = show_count(2, 'child', 'children')
     assert got == '2 children'
+<<<<<<< HEAD
+=======
     
 from collections import abc
 
@@ -54,6 +56,9 @@ def alert_duck(birdie: Duck) -> None:
     
 def alert_bird(birdie: Bird) -> None:
     birdie.quack()  # error: "Bird" has no attribute "quack"
+<<<<<<< HEAD
+>>>>>>> 0c92e51e789137a3b270b0a57ad258664f517da9
+=======
 
 from typing import NamedTuple
 
@@ -101,3 +106,4 @@ def sample(population: Sequence[T], size: int) -> list[T]:
 
 result = sample(["alpha", "beta", "bravo", "charly"], 4)
 print(result)
+>>>>>>> bf08e3ca9a388b24b3f21d6176583a0f6cc4ba61
