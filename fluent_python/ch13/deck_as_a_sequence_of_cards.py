@@ -14,8 +14,20 @@ class FrenchDeck:
     
     def __getitem__(self, position):
         return self._cards[position]
+    
+def set_card(deck, position, card):
+    deck._cards[position] = card
 
 
 french_decks = FrenchDeck()
 for deck in french_decks:
     print(deck)
+
+from random import shuffle
+deck = FrenchDeck()
+# shuffle(deck)   TypeError: 'FrenchDeck' object does not support item assignment
+
+FrenchDeck.__setitem__ = set_card
+shuffle(deck)
+print(deck[:5])
+
