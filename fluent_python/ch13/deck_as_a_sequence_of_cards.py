@@ -27,7 +27,19 @@ from random import shuffle
 deck = FrenchDeck()
 # shuffle(deck)   TypeError: 'FrenchDeck' object does not support item assignment
 
+# this is Monky patching
 FrenchDeck.__setitem__ = set_card
 shuffle(deck)
 print(deck[:5])
 
+
+field_names = 'easywaldo,new york,seoul,L.A'
+try:
+    field_names = field_names.replace(',', ' ').split()
+except AttributeError:
+    pass
+
+field_names = tuple(field_names)
+if not all(s.isidentifier() for s in field_names):
+    raise ValueError('field_names must all be valid identifiers')
+print(field_names)
