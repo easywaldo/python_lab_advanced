@@ -31,3 +31,27 @@ for deck in french_decks:
     
 french_decks.insert(5, 'diamond')
 print(french_decks[5])
+
+
+# remove and contains
+french_decks.remove('diamond')
+print(french_decks.__contains__('diamond'))
+
+# extend
+print(len(french_decks))
+french_decks.extend(french_decks)
+print(len(french_decks))
+
+# pop
+print(french_decks.pop(10))
+
+# iter
+iter_decks = iter(french_decks)
+print(next(iter_decks))
+print(next(iter_decks))
+
+# reversed
+reversed_decks = reversed(french_decks)
+for d in reversed_decks:
+    print(d)
+
