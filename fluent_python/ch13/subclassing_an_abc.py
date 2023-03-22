@@ -55,3 +55,28 @@ reversed_decks = reversed(french_decks)
 for d in reversed_decks:
     print(d)
 
+
+import abc
+class Tombola(abc.ABC):
+    @abc.abstractmethod
+    def load(self, iterable):
+        """Add items from an iterable"""
+        
+    @abc.abstractmethod
+    def pick(self):
+        """Remove item at random, returning it."""
+        
+    def loaded(self):
+        """Return True if there is at least one item"""
+        return bool(self.inspect())
+    
+    def inspect(self):
+        """Return a sorted tuple with the items currently inside."""
+        items = []
+        while True:
+            try:
+                items.append(self.pick())
+            except ValueError:
+                break
+        self.load(items)
+        return tuple(items)
