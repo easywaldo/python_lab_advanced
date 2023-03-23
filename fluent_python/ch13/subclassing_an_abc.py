@@ -80,3 +80,10 @@ class Tombola(abc.ABC):
                 break
         self.load(items)
         return tuple(items)
+    
+class Fake(Tombola):
+    def pick(self):
+        return 13
+
+print(Fake)
+f = Fake()
