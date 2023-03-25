@@ -206,3 +206,29 @@ class Struggle:
 from collections import abc
 print(isinstance(Struggle(), abc.Sized))
 print(issubclass(Struggle, abc.Sized))
+
+
+from abc import abstractmethod, ABCMeta
+
+class SizedTest(metaclass=ABCMeta):
+    __slots__ =()
+    
+    @abstractmethod
+    def __len__(self):
+        return 0
+    
+    @classmethod
+    def __subclasshook__(cls, C):
+        if cls is SizedTest:
+            if any("__len__" in B.__dict__ for B in C.__mro__):
+                return True
+        return NotImplemented
+    
+    
+class SizedInherited:
+    def __len__(self): return 100
+    
+print(isinstance(SizedInherited(), SizedTest))
+print(issubclass(SizedInherited, SizedTest))
+print(issubclass(Tombola, SizedTest))
+
