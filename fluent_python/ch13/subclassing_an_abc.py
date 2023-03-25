@@ -232,3 +232,19 @@ print(isinstance(SizedInherited(), SizedTest))
 print(issubclass(SizedInherited, SizedTest))
 print(issubclass(Tombola, SizedTest))
 
+from typing import TypeVar, Protocol
+
+T = TypeVar('T')
+
+class Repeatable(Protocol):
+    def __mul__(self: T, repeat_count: int) -> T:
+        pass
+
+RT = TypeVar('RT', bound=Repeatable)
+
+def double(x: RT) -> RT:
+    return x * 2
+
+repeatable_list = [2,3,4]
+print(double(repeatable_list))
+print(double(repeatable_list.__mul__(3)))
