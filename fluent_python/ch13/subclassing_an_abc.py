@@ -191,3 +191,4 @@ tombo_list = Tombolist(['korea', 'china', 'england', 'germany'])
 print(tombo_list.pick())
 
 print(Tombolist.__mro__)
+print(tombo_list.inspect())
