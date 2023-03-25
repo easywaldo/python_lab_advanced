@@ -118,4 +118,48 @@ print(bingo_cage.pick())
 print(bingo_cage.pick())
 print(bingo_cage.pick())
 print(bingo_cage.pick())
+# print(bingo_cage.pick())  LookupError: pick from empty BingoCage
 print(bingo_cage.loaded())
+
+class LottoBlower(Tombola):
+    def __init__(self, iterable):
+        self._balls = list(iterable)
+        
+    def load(self, iterable):
+        self._balls.extend(iterable)
+        
+    def length(self):
+        return len(self._balls)
+        
+    def pick(self):
+        try:
+            position = random.randrange(len(self._balls))
+        except ValueError:
+            raise self._balls.pop(position)
+        return self._balls.pop(position)
+    
+    def loaded(self):
+        return bool(self._balls)
+    
+    def inspect(self):
+        return tuple(self._balls)
+    
+print('================================================================')
+lotto_blower = LottoBlower(['python', 'kotlin', 'c#', 'javascript', 'typescript', 'php', 'sql', 'ruby'])
+lotto_blower.load(['c++', 'c', 'visual basic', 'java'])
+print('inspect ================================================================')
+print(lotto_blower.inspect())
+print(lotto_blower.length())
+print(lotto_blower.pick())
+print(lotto_blower.pick())
+print(lotto_blower.pick())
+print(lotto_blower.pick())
+print(lotto_blower.pick())
+print(lotto_blower.pick())
+print(lotto_blower.pick())
+print(lotto_blower.pick())
+print(lotto_blower.pick())
+print(lotto_blower.pick())
+print(lotto_blower.pick())
+print(lotto_blower.pick())
+print(lotto_blower.loaded())
