@@ -192,3 +192,11 @@ print(tombo_list.pick())
 
 print(Tombolist.__mro__)
 print(tombo_list.inspect())
+
+from collections.abc import Sequence
+Sequence.register(tuple)
+Sequence.register(str)
+Sequence.register(range)
+Sequence.register(memoryview)
+
+
