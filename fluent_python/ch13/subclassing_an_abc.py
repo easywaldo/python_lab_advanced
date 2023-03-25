@@ -189,3 +189,5 @@ print(isinstance(t, Tombola))
 
 tombo_list = Tombolist(['korea', 'china', 'england', 'germany'])
 print(tombo_list.pick())
+
+print(Tombolist.__mro__)
