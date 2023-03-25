@@ -163,3 +163,29 @@ print(lotto_blower.pick())
 print(lotto_blower.pick())
 print(lotto_blower.pick())
 print(lotto_blower.loaded())
+
+
+from random import randrange
+@Tombola.register
+class Tombolist(list):
+    def pick(self):
+        if self:
+            position = randrange(len(self))
+            return self.pop(position)
+        else:
+            raise LookupError('pop from empty TomboList')
+        
+    load = list.extend
+    
+    def loaded(self):
+        return bool(self)
+    
+    def inspect(self):
+        return tuple(self)
+    
+print(issubclass(Tombolist, Tombola))
+t = Tombolist(range(100))
+print(isinstance(t, Tombola))
+
+tombo_list = Tombolist(['korea', 'china', 'england', 'germany'])
+print(tombo_list.pick())
