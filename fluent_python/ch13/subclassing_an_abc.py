@@ -262,4 +262,16 @@ class SupportsComplex(Protocol):
     
 import numpy as np
 c64 = np.complex64(3 + 4j)
+
+print('================================================================')
 print(isinstance(c64, complex))
+print('================================================================')
+print(isinstance(c64, SupportsComplex))
+
+c = complex(c64)
+print(c)
+print('================================================================')
+print(isinstance(c, SupportsComplex))
+print(complex(c))
+
+print(isinstance(c, (complex, SupportsComplex)))
