@@ -250,6 +250,8 @@ print(double(repeatable_list))
 print(double(repeatable_list.__mul__(3)))
 
 
+from typing import runtime_checkable
+
 @runtime_checkable
 class SupportsComplex(Protocol):
     __slots__ = ()
@@ -258,3 +260,6 @@ class SupportsComplex(Protocol):
     def __complex__(self) -> complex:
         pass
     
+import numpy as np
+c64 = np.complex64(3 + 4j)
+print(isinstance(c64, complex))
