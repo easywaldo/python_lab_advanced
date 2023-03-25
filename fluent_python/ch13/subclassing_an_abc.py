@@ -248,3 +248,13 @@ def double(x: RT) -> RT:
 repeatable_list = [2,3,4]
 print(double(repeatable_list))
 print(double(repeatable_list.__mul__(3)))
+
+
+@runtime_checkable
+class SupportsComplex(Protocol):
+    __slots__ = ()
+    
+    @abstractmethod
+    def __complex__(self) -> complex:
+        pass
+    
