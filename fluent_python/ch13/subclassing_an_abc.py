@@ -275,3 +275,8 @@ print(isinstance(c, SupportsComplex))
 print(complex(c))
 
 print(isinstance(c, (complex, SupportsComplex)))
+
+print('================================================================')
+import numbers
+print(isinstance(c, numbers.Complex))
+print(isinstance(c64, numbers.Complex))
