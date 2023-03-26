@@ -17,3 +17,16 @@ headers = CaseInsentiveDict({
 })
 print(headers["CONTENT-LENGTH"])
 print(headers["content-type"])
+
+
+class Base1:
+    pass
+
+class Base2:
+    def method(self):
+        print("Base2.method() called")
+
+class MyClass(Base1, Base2):
+    pass
+
+print(MyClass.__mro__)
