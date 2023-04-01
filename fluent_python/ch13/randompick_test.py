@@ -1,12 +1,16 @@
 from typing import Protocol, runtime_checkable, Any
+from typing import Iterable, TYPE_CHECKING
 
 @runtime_checkable
 class RandomPicker(Protocol):
+    _items: Iterable
+    def __init__(self, items: Iterable):
+        self._items = items
+        
     def pick(self) -> Any:
         pass
     
 import random
-from typing import Iterable, TYPE_CHECKING
 
 
 class SimplePicker:
@@ -36,3 +40,14 @@ def test_item_type() -> None:
 
 test_isinstance()
 test_item_type()
+
+
+@runtime_checkable
+class LoadableRandomPicker(RandomPicker, Protocol):
+    def load(sel, Iterable) -> None:
+        pass
+    
+loadable_random_picker = LoadableRandomPicker([1,2,3,])
+print(isinstance(loadable_random_picker, LoadableRandomPicker))
+print(isinstance(loadable_random_picker, SimplePicker))
+print(isinstance(loadable_random_picker, RandomPicker))
