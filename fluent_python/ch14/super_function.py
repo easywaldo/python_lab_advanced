@@ -26,3 +26,21 @@ print(dd)
 
 dd.update(three=3)
 print(dd)
+
+
+print('================================')
+class AnswerDict(dict):
+    def __getitem__(self, key):
+        return 42
+    
+ad = AnswerDict(a = 'foo')
+print(ad['a'])
+
+d = {}
+d.update(ad)
+
+print(d['a'])
+
+print(d)
+
+print(d['a'])   # ignored AnswerDict.__getitem__.
