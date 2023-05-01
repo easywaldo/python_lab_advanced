@@ -15,3 +15,6 @@ print(find_first_str(['hello world', 'python journey']))
 def clip(text: str, max_len: int = 80) -> str:
     pass
 print(clip.__annotations__)
+
+from typing import get_type_hints
+print(get_type_hints(clip))
