@@ -41,7 +41,7 @@ book['weight'] = 4.2
 del book['title']
 
 def from_json(data: str) -> BookDict:
-    whatever = json.loads(data)
+    whatever: BookDict = json.loads(data)
     return whatever
 
 json_str = """{"isbn": "091234123", "title": "good books", "authors": ["john", "hopkins"], "pagecount": 10}"""
