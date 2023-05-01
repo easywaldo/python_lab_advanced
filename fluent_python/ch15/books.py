@@ -1,3 +1,4 @@
+import json
 from typing import TYPE_CHECKING, TypedDict
 
 class BookDict(TypedDict):
@@ -38,3 +39,10 @@ if TYPE_CHECKING:
 authors = 'Bob'
 book['weight'] = 4.2
 del book['title']
+
+def from_json(data: str) -> BookDict:
+    whatever = json.loads(data)
+    return whatever
+
+json_str = """{"isbn": "091234123", "title": "good books", "authors": ["john", "hopkins"], "pagecount": 10}"""
+print(from_json(json_str))
