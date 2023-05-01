@@ -8,4 +8,10 @@ result = find_first_str("hello world")
 print(result)
 
 print(find_first_str(['hello world', 'python journey']))
-print(find_first_str([12, 45, 56, 678, 89, 99]))
+# print(find_first_str([12, 45, 56, 678, 89, 99]))
+
+
+
+def clip(text: str, max_len: int = 80) -> str:
+    pass
+print(clip.__annotations__)
