@@ -27,3 +27,6 @@ install_co(juice_dispenser)
 
 orange_juice_dispenser = BeverageDispenserCo(OrangeJuice())
 install_co(orange_juice_dispenser)
+
+beverage_dispenser = BeverageDispenserCo(Beverage())
+install_co(beverage_dispenser)  # error: Argument 1 to "install_co" has incompatible type "BeverageDispenserCo[Beverage]"; expected "BeverageDispenserCo[Juice]"
