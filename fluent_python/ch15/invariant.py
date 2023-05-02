@@ -29,3 +29,6 @@ install(juice_dispenser)
 
 beverage_dispenser = BeverageDispenser(Beverage())
 install(beverage_dispenser) # mypy error: Argument 1 to "install" has incompatible type "BeverageDispenser[Beverage]"; expected "BeverageDispenser[Juice]"
+
+orange_juice_dispenser = BeverageDispenser(OrangeJuice())
+install(orange_juice_dispenser) # error: Argument 1 to "install" has incompatible type "BeverageDispenser[OrangeJuice]"; expected "BeverageDispenser[Juice]"
