@@ -24,3 +24,5 @@ deploy(bio_can)
 trash_can: TrashCan[Refuse] = TrashCan()
 deploy(trash_can)
 
+compost_can: TrashCan[Compostable] = TrashCan()
+deploy(compost_can) # error: Argument 1 to "deploy" has incompatible type "TrashCan[Compostable]"; expected "TrashCan[Biodegradable]"
