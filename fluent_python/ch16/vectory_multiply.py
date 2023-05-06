@@ -3,6 +3,29 @@ from array import array
 import reprlib
 
 
+class Vector2d:
+    typecode = 'd'
+    
+    def __init__(self, x, y):
+        self.__x = float(x)
+        self.__y = float(y)
+        
+    def __iter__(self):
+        return (i for i in (self.__x, self.__y))
+    
+    def __len__(self):
+        return int(self.__y - self.__x)
+    
+    def __repr__(self):
+        class_name = type(self).__name__
+        return '{}({!r}, {!r})'.format(class_name, *self)
+    
+    def __eq__(self, other):
+        if (isinstance(other, tuple)):
+            return False
+        return tuple(self) == tuple(other)
+
+
 class Vector:
     typecode = 'd'
     
@@ -44,8 +67,11 @@ class Vector:
         return len(self._components)
     
     def __eq__(self, other):
-        return (len(self) == len(other) and
-                all(a == b for a, b in zip(self, other)))
+        if isinstance(other, Vector):
+            return (len(self) == len(other) and
+                    all(a == b for a, b in zip(self, other)))
+        else:
+            return NotImplemented
     
     
     
@@ -67,3 +93,17 @@ print('================================================================')
 va = Vector([1,2,3])
 vz = Vector([5,6,7])
 print(va @ vz == 38.0)
+
+
+va = Vector([1.0, 2.0, 3.0])
+vb = Vector(range(1, 4))
+
+print(va == vb)
+
+vc = Vector([1, 2])
+
+v2d = Vector2d(1, 2)
+print(vc == v2d)
+
+t3 = (1, 2, 3)
+print(va == t3) # compare Vector with tuple
