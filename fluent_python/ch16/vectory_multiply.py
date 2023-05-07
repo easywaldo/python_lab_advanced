@@ -72,6 +72,13 @@ class Vector:
                     all(a == b for a, b in zip(self, other)))
         else:
             return NotImplemented
+        
+    def __ne__(self, other):
+        eq_result = self == other
+        if eq_result is NotImplemented:
+            return NotImplemented
+        else:
+            return not eq_result
     
     
     
@@ -107,3 +114,10 @@ print(vc == v2d)
 
 t3 = (1, 2, 3)
 print(va == t3) # compare Vector with tuple
+
+
+print('================================================================')
+print(va != vb)
+print(vc != v2d)
+print(va != (1,2,3))
+
