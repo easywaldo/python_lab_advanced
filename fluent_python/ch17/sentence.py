@@ -61,3 +61,13 @@ print(next(item_iter))
 print(next(item_iter))
 print(next(item_iter))
 print(next(item_iter))
+
+
+class GoodsSpam:
+    def __iter__(self):
+        pass
+    
+print(issubclass(GoodsSpam, abc.Iterable))
+
+goods_spam_can = GoodsSpam()
+print(isinstance(goods_spam_can, abc.Iterable))
