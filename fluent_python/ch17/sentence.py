@@ -55,3 +55,9 @@ spam = Spam([1,2,3,4,5])
 item_iter = iter(spam_can)
 for item in item_iter:
     print(item)
+
+item_iter = iter(spam_can)
+print(next(item_iter))
+print(next(item_iter))
+print(next(item_iter))
+print(next(item_iter))
