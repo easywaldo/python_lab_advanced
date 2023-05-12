@@ -31,3 +31,18 @@ print(list(s))
 print(s[0])
 print(s[5])
 print(s[-1])
+
+
+class Spam:
+    def __getitem__(self, i):
+        print('->', i)
+        raise IndexError()
+    
+spam_can = Spam()
+print(iter(spam_can))
+
+print(list(spam_can))
+
+from collections import abc
+print(isinstance(spam_can, abc.Iterable))
+
