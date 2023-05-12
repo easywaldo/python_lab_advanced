@@ -1,5 +1,6 @@
 import re
 import reprlib
+from typing import List
 
 
 RE_WORD = re.compile(r'\w+')
@@ -34,11 +35,14 @@ print(s[-1])
 
 
 class Spam:
-    def __getitem__(self, i):
-        print('->', i)
-        raise IndexError()
     
-spam_can = Spam()
+    def __init__(self, items: List):
+        self.items = items
+        
+    def __getitem__(self, i):
+        return self.items[i]
+    
+spam_can = Spam([1,2,3,4,5])
 print(iter(spam_can))
 
 print(list(spam_can))
@@ -46,3 +50,8 @@ print(list(spam_can))
 from collections import abc
 print(isinstance(spam_can, abc.Iterable))
 
+spam = Spam([1,2,3,4,5])
+
+item_iter = iter(spam_can)
+for item in item_iter:
+    print(item)
