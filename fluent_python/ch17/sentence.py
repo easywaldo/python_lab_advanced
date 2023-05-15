@@ -71,3 +71,15 @@ print(issubclass(GoodsSpam, abc.Iterable))
 
 goods_spam_can = GoodsSpam()
 print(isinstance(goods_spam_can, abc.Iterable))
+
+
+
+s = "ABC"
+it = iter(s)
+
+while True:
+    try:
+        print(next(it))
+    except StopIteration:
+        del it
+        break
