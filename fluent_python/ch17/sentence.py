@@ -83,3 +83,14 @@ while True:
     except StopIteration:
         del it
         break
+
+
+s3 = Sentence('Life of Brian')
+it = iter(s3)
+
+print(next(it))
+print(next(it))
+print(next(it))
+
+print(list(it))
+print(list(iter(s3)))
