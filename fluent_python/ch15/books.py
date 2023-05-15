@@ -1,39 +1,12 @@
-<<<<<<< HEAD
-from typing import TYPE_CHECKING, TypedDict
-
-
-class BookDict(TypedDict):
-    """_summary_
-    Args:
-        TypedDict (_type_): _description_
-    """
-=======
 import json
 from typing import TYPE_CHECKING, TypedDict
 
 class BookDict(TypedDict):
->>>>>>> db46de791a0bd6219643236d8f46c17e8429bcac
     isbn: str
     title: str
     authors: list[str]
     pagecount: int
     
-<<<<<<< HEAD
-
-pp = BookDict(title="programming Pearls",
-                authors="Jon Bently",
-                isbn="0101092012821",
-                pagecount=256,)
-print(pp)
-print(type(pp))
-# print(pp.title) # AttributeError: 'dict' object has no attribute 'title'
-print(pp['title'])
-print(pp.get('title'))
-
-
-def demo() -> None:
-    book = BookDict(
-=======
 AUTHOR_ELEMENT = '<AUTHOR>{}</AUTHOR>'
 
 def to_xml(book: BookDict) -> str:
@@ -50,25 +23,11 @@ def to_xml(book: BookDict) -> str:
 
 
 book = BookDict(
->>>>>>> db46de791a0bd6219643236d8f46c17e8429bcac
         isbn='0134757599',
         title='Refactoring, 2e',
         authors=['Martin Fowler', 'Kent Beck'],
         pagecount=478
     )
-<<<<<<< HEAD
-    authors = book['authors']
-    if TYPE_CHECKING:
-        print('====')
-        reveal_type(authors)
-    authors = 'Bob'
-    book['weight'] = 4.2
-    del book['title']
-    print(book)
-
-if __name__ == '__main__':
-    demo()
-=======
 
 print(to_xml(book=book))
 
@@ -106,4 +65,3 @@ print(not_book['flavor'])   # Expression has type "Any"  , TypedDict "BookDict" 
 xml = to_xml(not_book)
 print(xml)
 
->>>>>>> db46de791a0bd6219643236d8f46c17e8429bcac
