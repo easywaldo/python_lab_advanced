@@ -71,3 +71,16 @@ print(issubclass(GoodsSpam, abc.Iterable))
 
 goods_spam_can = GoodsSpam()
 print(isinstance(goods_spam_can, abc.Iterable))
+
+
+from random import randint
+def d6():
+    return randint(1, 6)
+
+d6_iter = iter(d6, 1)
+print(d6_iter)
+
+print('================================================================')
+for roll in d6_iter:
+    print(roll)
+    
