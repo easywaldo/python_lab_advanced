@@ -24,3 +24,12 @@ def gen_AB():
     
 for c in gen_AB():
     print('--->', c)
+    
+    
+import itertools
+gen = itertools.count(1, .5)
+print(next(gen))
+print(next(gen))
+print(next(gen))
+print(next(gen))
+
