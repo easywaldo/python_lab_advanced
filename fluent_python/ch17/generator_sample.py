@@ -33,3 +33,7 @@ print(next(gen))
 print(next(gen))
 print(next(gen))
 
+print('================================================================')
+gen = itertools.takewhile(lambda n: n < 3, itertools.count(1, .5))
+print(list(gen))
+
