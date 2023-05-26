@@ -37,3 +37,19 @@ print('================================================================')
 gen = itertools.takewhile(lambda n: n < 3, itertools.count(1, .5))
 print(list(gen))
 
+def aritprog_gen(begin, step, end=None):
+    first = type(begin + step)(begin)
+    ap_gen = itertools.count(first, step)
+    if end is None:
+        return ap_gen
+    return itertools.takewhile(lambda n: n < end, ap_gen)
+
+gen = aritprog_gen(2, .5, 5)
+print(next(gen))
+print(next(gen))
+print(next(gen))
+print(next(gen))
+print(next(gen))
+print(next(gen))
+print(next(gen))
+print(next(gen))
