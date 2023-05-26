@@ -67,3 +67,11 @@ print(list(itertools.compress('Aardvark', (1, 0, 1, 1, 0, 1))))
 print(list(itertools.islice('Aardvardk', 4)))
 print(list(itertools.islice('Aardvark', 4, 7)))
 print(list(itertools.islice('Aardvark', 1, 7, 2)))
+
+sample = [5, 4, 2, 8, 7, 6, 3, 0, 9, 1]
+print(list(itertools.accumulate(sample)))
+print(list(itertools.accumulate(sample, min)))
+print(list(itertools.accumulate(sample, max)))
+import operator
+print(list(itertools.accumulate(sample, operator.mul)))
+print(list(itertools.accumulate(range(1, 11), operator.mul)))
