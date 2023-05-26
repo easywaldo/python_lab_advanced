@@ -50,6 +50,12 @@ print(next(gen))
 print(next(gen))
 print(next(gen))
 print(next(gen))
-print(next(gen))
-print(next(gen))
-print(next(gen))
+# print(next(gen))
+# print(next(gen))
+# print(next(gen))
+
+
+def vowel(c):
+    return c.lower() in 'aeiou'
+
+print(list(filter( vowel, 'Aardvark')))
