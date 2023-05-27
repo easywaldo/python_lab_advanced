@@ -1,8 +1,12 @@
-from random import randint
+import itertools
 
-def d6():
-    return randint(1, 6)
 
-d6_tier = iter(d6, 1)
-for n in d6_tier:
-    print(n)
+print(list(itertools.groupby('LLLLAAGGG')))
+
+for char, group in itertools.groupby('LLLLAAAGG'):
+    print(char, '->', list(group))
+
+animals = ['duck', 'eagle', 'rat', 'giraffe', 'bear', 'bat', 'dolphin', 'shark', 'lion']
+animals.sort(key=len)
+
+print(animals)
