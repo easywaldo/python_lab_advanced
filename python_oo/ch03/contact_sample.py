@@ -1,4 +1,5 @@
 from __future__ import annotations
+from typing import Protocol
 
 
 class ContactList(list["Contact"]):
@@ -41,3 +42,18 @@ class Friend(Contact):
     def __init__(self, name: str, email: str, phone: str) -> None:
         super().__init__(name, email)
         self.phone = phone
+
+class Emailable(Protocol):
+    email: str
+    
+class MailSender(Emailable):
+    def send_mail(self, message: str) -> None:
+        print(f'Sending mail to {self.email=}')
+        
+        
+class EmailableContact(Contact, MailSender):
+    pass
+
+e = EmailableContact("easywaldo", "easywaldo@gmail.com")
+print(Contact.all_contacts)
+e.send_mail("Hello, test e-mail here!")
