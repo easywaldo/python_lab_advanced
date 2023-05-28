@@ -30,3 +30,14 @@ c2 = Contact("tom", "tom@gmail.com")
 
 result = [c.name for c in Contact.all_contacts.search('john')]
 print(result)
+
+
+
+class Friend(Contact):
+    """_summary_
+    Args:
+        Contact (_type_): _description_
+    """
+    def __init__(self, name: str, email: str, phone: str) -> None:
+        super().__init__(name, email)
+        self.phone = phone
