@@ -73,6 +73,29 @@ goods_spam_can = GoodsSpam()
 print(isinstance(goods_spam_can, abc.Iterable))
 
 
+
+s = "ABC"
+it = iter(s)
+
+while True:
+    try:
+        print(next(it))
+    except StopIteration:
+        del it
+        break
+
+
+s3 = Sentence('Life of Brian')
+it = iter(s3)
+
+print(next(it))
+print(next(it))
+print(next(it))
+
+print(list(it))
+print(list(iter(s3)))
+
+
 from random import randint
 def d6():
     return randint(1, 6)
