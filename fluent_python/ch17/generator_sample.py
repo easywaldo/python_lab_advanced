@@ -86,3 +86,7 @@ print(list(itertools.starmap(operator.mul, enumerate('albatroz', 1))))
 
 sample = [5, 4, 2, 8, 7, 6, 3, 0, 9, 1]
 print(list(itertools.starmap(lambda a, b: b / a, enumerate(itertools.accumulate(sample), 1))))
+
+
+print(all([1, 2, 3]))
+print(all([1, 0, 3]))
