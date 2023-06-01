@@ -102,3 +102,15 @@ g = (n for n in [0, 0.0, 7, 8])
 print(any(g))
 print(next(g))
 
+def sub_gen():
+    yield 1.1
+    yield 1.2
+    
+def gen():
+    yield 1
+    for i in sub_gen():
+        yield i
+    yield 2
+    
+for x in gen():
+    print(x)
