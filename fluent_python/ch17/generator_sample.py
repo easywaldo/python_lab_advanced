@@ -155,3 +155,15 @@ def chain(*iterables):
     for i in iterables:
         yield from i
 print(list(chain(s, r)))
+
+
+def tree(cls):
+    yield cls.__name__
+    
+def display(cls):
+    for cls_name in tree(cls):
+        print(cls_name)
+     
+print('=======================')   
+if __name__ == '__main__':
+    display(BaseException)
