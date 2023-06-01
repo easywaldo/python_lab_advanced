@@ -138,3 +138,14 @@ def gen():
 for x in gen():
     print(x)
     
+
+def chain(*iterables):
+    for it in iterables:
+        print(it)
+        for i in it:
+            print(i)
+            yield i
+
+s = 'ABC'
+r = range(3)
+print(list(chain(s, r)))
