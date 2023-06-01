@@ -114,3 +114,12 @@ def gen():
     
 for x in gen():
     print(x)
+
+
+def gen():
+    yield 1
+    yield from sub_gen()
+    yield 2
+    
+for x in gen():
+    print(x)
