@@ -149,3 +149,9 @@ def chain(*iterables):
 s = 'ABC'
 r = range(3)
 print(list(chain(s, r)))
+
+
+def chain(*iterables):
+    for i in iterables:
+        yield from i
+print(list(chain(s, r)))
