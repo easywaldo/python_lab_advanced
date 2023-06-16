@@ -12,5 +12,8 @@ class EvenOnly(List[int]):
 e = EvenOnly()
 # e.append("this is a string")
 
-e.append(3)
+# e.append(3)
 
+e.append(20)
+
+print(e)
