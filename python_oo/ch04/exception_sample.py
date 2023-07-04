@@ -24,8 +24,13 @@ def funnier_division(divisor: int) -> Union[str, float]:
         if divisor == 13:
             raise ValueError("13 is an unlucky number")
         return 100 / divisor
-    except (ZeroDivisionError, TypeError):
+    except ZeroDivisionError:
         return "Enter a number other than zero"
+    except TypeError:
+        return "Enter a numerical value"
+    except ValueError:
+        print("No, No, not 13!")
+        raise
 
 result = funnier_division(13)
 print(result)
