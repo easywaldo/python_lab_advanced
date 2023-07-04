@@ -1,3 +1,4 @@
+from typing import Union
 from typing import List
 
 class EvenOnly(List[int]):
@@ -17,3 +18,15 @@ e = EvenOnly()
 e.append(20)
 
 print(e)
+
+def funnier_division(divisor: int) -> Union[str, float]:
+    try:
+        if divisor == 13:
+            raise ValueError("13 is an unlucky number")
+        return 100 / divisor
+    except (ZeroDivisionError, TypeError):
+        return "Enter a number other than zero"
+
+result = funnier_division(13)
+print(result)
+print(funnier_division(20))
